@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kaman Lam</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <button onclick="location.href='index.html'" class="button button1"> Kaman Lam </button>
+
+    <section class="intro">
+        <marquee>
+            <a href="mailto:kamanlam99@gmail.com">&nbsp ˗ˏˋ ꒰ ✉︎ ꒱ ˎˊ˗ 👀. kamanlam99@gmail.com &nbsp</a>
+            <a href="https://www.instagram.com/kaman_lll/" target="_blank">&nbsp 🅾 攻擊力+10 @kaman_lll &nbsp</a>
+            <a href="https://www.instagram.com/pppostartists/" target="_blank">&nbsp 🅾⋆˙⟡後後後藝術群 Popo-Post Art Group⋆˙⟡
+                &nbsp</a>
+            <a href="https://www.instagram.com/museumtrap/" target="_blank">&nbsp 🅾 博物館陷阱 Museum Trap ✐ᝰ. &nbsp</a>
+        </marquee>
+    </section>
+
+    <div id="mydiv">
+        <img class="move" src="images/ruler.png" alt="ruler" width="800px">
+    </div>
+    <!--mydiv(ruler) java-->
+    <script>
+        dragElement(document.getElementById("mydiv"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            if (document.getElementById(elmnt.id + "header")) {
+                /* if present, the header is where you move the DIV from:*/
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+            } else {
+                /* otherwise, move the DIV from anywhere inside the DIV:*/
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // set the element's new position:
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+    </script>
+
+    <section class="nav">
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img src="/images/nav_btn.png" alt="x">
+                <p>About</p>
+            </button>
+            <div class="dropAbout">
+                <img src="/images/photo.jpg">
+                <p>Base in Hong Kong, co-founder and member of Popo-Post Art Group 後後後藝術群.
+                    Used to focus on being a great art worker in real life but currently taking a year off,
+                    to live in the virtual world. (2025)</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img src="/images/nav_btn.png" alt="x">
+                <p>Work</p>
+            </button>
+            <div class="dropArt">
+                <ul>
+                    <a href="/site/thread.html">
+                        <li class="select">線<br>Thread</li>
+                    </a>
+                    <a href="/site/map.html">
+                        <li class="select">PHS展覽平面圖<br>PHS Exhibition Map</li>
+                    </a>
+                    <a href="/site/game.html">
+                        <li class="select">後當代線上遊戲地帶<br>Post Contemporary Game Zone</li>
+                    </a>
+                    <a href="/site/candy.html">
+                        <li class="select">爆炸糖<br>Popping candy</li>
+                    </a>
+                    <a href="/site/book.html">
+                        <li class="select">在床上理解一本書<br>Comprehend a book on the bed</li>
+                    </a>
+                    <a href="/site/people.html">
+                        <li class="select">移動中的人<br>When people moving</li>
+                    </a>
+                    <a href="/site/centaur.html">
+                        <li class="select">人馬<br>Centaur</li>
+                    </a>
+                    <a href="/site/tempo.html">
+                        <li class="select">我幫你擦乾淨<br>I will clean it for you</li>
+                    </a>
+                    <a href="/site/frog.html">
+                        <li class="select">遇溺的青蛙<br>Drowning Frog</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">
+                <a href="https://www.behance.net/museumtrap">
+                    <img src="/images/nav_btn.png" alt="x">
+                    <p>Design</p>
+                </a>
+            </button>
+            <!-- <div class="dropWeb">
+    <iframe src="https://www.behance.net/museumtrap"></iframe>
+    </div>
+  </div>-->
+            <!-- 
+  <script>
+  /* When the user clicks on the button, 
+  toggle between hiding and showing the dropdown content */
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script> -->
+    </section>
+
+
+    <!--div>
+  <img class="box" src="images/ppp.png" alt="popopo" width="10%">
+</div>-->
+</body>
+
+
+<footer>
+    <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
+</footer>
+
+</html>

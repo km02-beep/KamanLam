@@ -1,0 +1,230 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    background-image: url("/images/BG2.jpg"), url("/images/BGrepeat.jpg");
+    background-repeat: no-repeat, repeat-x;
+    background-attachment: fixed;
+    background-position: top left, 1700px 0px;
+    background-size: 1700px, 150.2px;
+    background-attachment: fixed;
+}
+
+
+.intro {
+    width: 439.2px;
+    height: 27px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    font-family: "Lucida Console", "Courier New", monospace;
+    position: fixed;
+    top: 43.5px;
+    left: 195px;
+    font-size: 13px;
+    padding: 0px 5px;
+}
+
+.intro a:link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.intro a:visited {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.intro a:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+    text-decoration: underline;
+}
+
+.intro a:active {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+
+/* V title */
+.button {
+    width: 153px;
+    height: 31px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    font-family: "Lucida Console", "Courier New", monospace;
+    position: absolute;
+    position: fixed;
+    top: 43.5px;
+    left: 43.5px;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button1:hover {
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.nav {
+    display: flex;
+    position: absolute;
+    position: fixed;
+    width: 450px;
+    top: 93px;
+    left: 45px;
+    align-items: center;
+    justify-content: space-between;
+    border: 0px solid;
+}
+
+.nav div {
+    width: 155px;
+    height: 100px;
+    text-align: center;
+}
+
+.nav .dropbtn:hover {
+    transform: scale(1.2);
+}
+
+.nav p {
+    font-size: 11px;
+    color: white;
+}
+
+.nav img {
+    width: 60%;
+}
+
+
+.dropbtn {
+    background-color: transparent;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    border: 0px solid;
+}
+
+.dropbtn a {
+    text-decoration: none;
+}
+
+.dropbtn:hover img {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+
+.dropAbout {
+    display: none;
+}
+
+.dropAbout img {
+    width: 90%;
+    align-content: center;
+    padding-bottom: 20px;
+}
+
+.nav div:hover .dropAbout {
+    display: block;
+    position: absolute;
+    width: 198px;
+    height: auto;
+    margin: 12px 0px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    text-align: left;
+    padding: 20px;
+    font-size: 10px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+
+.dropArt {
+    display: none;
+}
+
+.nav div:hover .dropArt {
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    width: 165px;
+    height: auto;
+    text-align: left;
+    font-size: 10px;
+    margin: 12px 0px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    padding: 7px
+}
+
+.dropArt ul .select {
+    list-style-type: none;
+    padding: 5px 0px;
+}
+
+.dropArt ul .select:hover {
+    text-decoration: none;
+    background-color: white;
+    color: #1D3527;
+    padding-left: 5px;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+.dropArt a {
+    text-decoration: none;
+    color: white;
+}
+
+.dropArt ul .a:active {
+    text-decoration: none;
+}
+
+
+.dropWeb {
+    display: none;
+}
+
+.nav div:hover .dropWeb {
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    margin: 12px 0px;
+}
+
+
+
+
+/* ruler */
+#mydiv {
+    position: absolute;
+    bottom: 200px;
+    right: 200px;
+    cursor: grab;
+}
+
+#mydiv :active {
+    cursor: grabbing;
+}
+
+
+footer {
+    color: white;
+    font-size: 9px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+}

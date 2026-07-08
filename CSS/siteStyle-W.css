@@ -1,0 +1,87 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color: rgb(245, 245, 245);
+}
+
+p{
+    font-size: 10px;
+    margin: 0px 3px;
+    padding-bottom: 30px;
+    color: rgb(0, 0, 0);
+}
+
+p a{
+    color: rgb(0, 0, 0);
+    text-decoration: underline;
+}
+p a:hover{
+    text-decoration: underline;
+    background-color: rgb(122, 255, 255);
+    font-size: 11px;
+}
+
+.book-view{
+    background-color: black;
+    padding: 40px 20px;
+}
+.book-view img{
+    display: block;
+    margin: auto;
+}
+
+.two-side{
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    column-gap: 20px;
+}
+
+div.scroll-container {
+    display: block;
+    position: relative;
+    overflow: auto;
+    padding: 0px 0px;
+}
+div.scroll-container img {
+  padding: 5px;
+
+}
+
+div.scroll-book {
+  background-color: rgb(245, 245, 245);
+  overflow: auto;
+  white-space: nowrap;
+  padding: 50px 30px;
+}
+div.scroll-book img {
+  padding: 20px;
+  width: 35%;
+}
+
+.back-btn{
+    bottom: 10px;
+    border: 0px;
+    padding: 15px;
+    background-color: transparent;
+    text-decoration: none;
+}
+.back-btn img{
+    width: 60px;
+}
+.back-btn img:hover{
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);   
+}
+
+footer{
+  color: rgb(0, 0, 0);
+  font-size: 9px;
+  bottom: 10px;
+  position: static;
+  text-align: center;
+  padding: 10px 0px;
+}
+
