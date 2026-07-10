@@ -50,9 +50,9 @@ body {
 
 
 /* V title */
-.button {
+.kaman {
     width: 153px;
-    height: 31px;
+    height: 32px;
     background-color: #1D3527;
     border: 2px solid #808184;
     font-family: "Lucida Console", "Courier New", monospace;
@@ -66,7 +66,7 @@ body {
     text-align: center;
 }
 
-.button1:hover {
+.kaman:hover {
     background-color: white;
     color: black;
     font-size: 14px;
@@ -208,17 +208,80 @@ body {
 
 
 /* ruler */
-#mydiv {
+#ruler {
     position: absolute;
-    bottom: 200px;
+    bottom: 100px;
     right: 200px;
+    width: 650px;
     cursor: grab;
 }
 
-#mydiv :active {
+#ruler:active {
     cursor: grabbing;
 }
 
+#ruler img {
+    width: 100%;
+    display: block;
+}
+
+/* 新增：緊貼在尺右上角的按鈕樣式 */
+#rotate-handle {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 28px;
+    height: 28px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 22px;
+    cursor: alias;
+    user-select: none;
+    z-index: 9999;
+}
+
+#rotate-handle:hover {
+    background-color: white;
+    color: #1D3527;
+}
+
+
+
+/* 修改：右側內容顯示區（佔據螢幕右半邊 50%） */
+#content-display {
+    position: fixed;
+    top: 100px;
+    /* 從最頂端開始 */
+    right: 0;
+    /* 貼緊最右邊 */
+    width: 50%;
+    /* 剛好佔據螢幕一半寬度 */
+    height: 100vh;
+    /* 高度撐滿整個螢幕 */
+
+    /* 視覺風格：使用您網頁的綠色 #1D3527，並帶點透明度，可透出您的背景圖 */
+    background-color: rgba(29, 53, 39);
+    border-left: 2px solid #808184;
+    border-top: 2px solid #808184;
+    /* 只在左側加上灰色邊框，與左邊原生網頁分隔 */
+
+    padding: 40px;
+    /* 內部留白，讓圖文不貼邊 */
+    color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
+
+    overflow-y: auto;
+    /* 如果作品內容太長，內部會自動出現滾動條 */
+    box-sizing: border-box;
+    z-index: 999;
+    /* 確保不會被主頁其他絕對定位的元素遮擋 */
+    display: none;
+    /* 初始預設隱藏，點擊連結後才顯示 */
+}
 
 footer {
     color: white;

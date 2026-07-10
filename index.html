@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <button onclick="location.href='index.html'" class="button button1"> Kaman Lam </button>
+    <button onclick="location.href='index.html'" class="kaman"> Kaman Lam </button>
 
     <section class="intro">
         <marquee>
@@ -37,7 +37,7 @@
         <div class="dropdown">
             <button class="dropbtn">
                 <img src="/images/nav_btn.png" alt="x">
-                <p>Work</p>
+                <p>Art</p>
             </button>
             <div class="dropArt">
                 <ul>
@@ -74,6 +74,14 @@
                 </ul>
             </div>
         </div>
+
+        <div id="content-display">
+            <button id="close-btn"
+                style="position: absolute; top: 20px; right: 20px; background: transparent; color: white; border: 1px solid #808184; padding: 5px 10px; cursor: pointer;">✕
+                Close</button>
+            <div id="ajax-target-content"></div>
+        </div>
+
         <div class="dropdown">
             <button class="dropbtn">
                 <a href="https://www.behance.net/museumtrap">
@@ -81,61 +89,134 @@
                     <p>Design</p>
                 </a>
             </button>
+        </div>
 
     </section>
 
 
-
-
-    <div id="mydiv">
-        <img class="move" src="images/ruler.png" alt="ruler" width="800px">
+    <!--mydiv(ruler) java-->
+    <div id="ruler">
+        <img class="move" src="images/ruler.png" alt="ruler" width="650px">
+        <!-- 旋轉按鈕直接放在這裡 -->
+        <div id="rotate-handle" title="按住拖曳即可旋轉">↻</div>
     </div>
 
-    <!--mydiv(ruler) java-->
+
     <script>
-        dragElement(document.getElementById("mydiv"));
+        // 啟動修正後的拖曳與按鈕旋轉功能
+        initRulerControls(document.getElementById("ruler"), document.getElementById("rotate-handle"));
 
-        function dragElement(elmnt) {
+        function initRulerControls(elmnt, handle) {
             var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-            if (document.getElementById(elmnt.id + "header")) {
-                /* if present, the header is where you move the DIV from:*/
-                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-            } else {
-                /* otherwise, move the DIV from anywhere inside the DIV:*/
-                elmnt.onmousedown = dragMouseDown;
-            }
+            var currentRotation = 0; // 記錄目前的旋轉角度
 
-            function dragMouseDown(e) {
+            // =================【 1. 修正後的拖曳移動功能  】=================
+            elmnt.onmousedown = function (e) {
                 e = e || window.event;
+                // 如果點擊的是旋轉按鈕，就不觸發移動功能
+                if (e.target === handle) return;
+
                 e.preventDefault();
-                // get the mouse cursor position at startup:
+                // 獲取滑鼠點下時的初始游標位置
                 pos3 = e.clientX;
                 pos4 = e.clientY;
+
                 document.onmouseup = closeDragElement;
-                // call a function whenever the cursor moves:
                 document.onmousemove = elementDrag;
-            }
+            };
 
             function elementDrag(e) {
                 e = e || window.event;
                 e.preventDefault();
-                // calculate the new cursor position:
+
+                // 計算滑鼠移動的絕對距離
                 pos1 = pos3 - e.clientX;
                 pos2 = pos4 - e.clientY;
                 pos3 = e.clientX;
                 pos4 = e.clientY;
-                // set the element's new position:
-                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+
+                // ✨ 關鍵修正：不使用 offsetTop/Left，直接抓取當前的 style 數值
+                // 如果原本沒有設定過 style.top，則預設為瀏覽器計算出來的當前位置
+                var currentTop = parseFloat(elmnt.style.top) || elmnt.getBoundingClientRect().top + window.scrollY;
+                var currentLeft = parseFloat(elmnt.style.left) || elmnt.getBoundingClientRect().left + window.scrollX;
+
+                // 完美的 1:1 移動跟隨，不受旋轉角度干擾
+                elmnt.style.top = (currentTop - pos2) + "px";
+                elmnt.style.left = (currentLeft - pos1) + "px";
             }
 
             function closeDragElement() {
-                /* stop moving when mouse button is released:*/
                 document.onmouseup = null;
                 document.onmousemove = null;
             }
+
+            // =================【 2. 按鈕拖曳旋轉功能（保持精準） 】=================
+            handle.onmousedown = function (e) {
+                e = e || window.event;
+                e.preventDefault();
+                e.stopPropagation(); // 阻止事件傳到外層
+
+                // 1. 取得尺的中心點座標（每次點擊重新計算，確保精準）
+                var rect = elmnt.getBoundingClientRect();
+                var centerTextX = rect.left + rect.width / 2;
+                var centerTextY = rect.top + rect.height / 2;
+
+                // 2. 計算滑鼠點下時的初始角度
+                var startAngle = Math.atan2(e.clientY - centerTextY, e.clientX - centerTextX);
+                var startRotation = currentRotation;
+
+                document.onmousemove = function (e) {
+                    e = e || window.event;
+                    e.preventDefault();
+
+                    // 3. 隨時更新滑鼠移動時的角度
+                    var currentAngle = Math.atan2(e.clientY - centerTextY, e.clientX - centerTextX);
+
+                    // 4. 計算角度差值，並將弧度轉換為角度
+                    var angleDiff = (currentAngle - startAngle) * (180 / Math.PI);
+
+                    // 5. 更新最終角度並套用 CSS
+                    currentRotation = startRotation + angleDiff;
+                    elmnt.style.transform = "rotate(" + currentRotation + "deg)";
+                };
+
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                };
+            };
         }
     </script>
+
+
+
+    <!--new window in mainpage-->
+    <script>
+        document.querySelectorAll('.ajax-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // 阻止原有的跳轉新頁面行為
+
+                const url = this.getAttribute('href');
+                const displayArea = document.getElementById('content-display');
+
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) throw new Error('連線失敗');
+                        return response.text();
+                    })
+                    .then(html => {
+                        displayArea.innerHTML = html; // 塞入內容
+                        displayArea.style.display = 'block'; // 顯示容器
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        displayArea.innerHTML = '<p>無法載入作品內容。</p>';
+                        displayArea.style.display = 'block';
+                    });
+            });
+        });
+    </script>
+
 </body>
 
 

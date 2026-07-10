@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgba(29, 53, 39);
+    }
+
+    p {
+        font-size: clamp(10px, 1vw, 14px);
+        color: rgb(255, 255, 255);
+        text-align: left;
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        z-index: 20;
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+    }
+
+    p b {
+        font-size: clamp(11px, 1vw, 15px);
+        display: block;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-underline-offset: 0.3vw;
+        /* 底線距離也等比例縮放 */
+        margin-bottom: -0.5vw;
+    }
+
+    /* =================【 ✨ 圖片展示輪播區（絕對左右置中版） 】================= */
+    .slider-section {
+        width: 100%;
+        /* 強制外層撐滿 100% 寬度，提供置中空間 */
+        padding-top: 0px;
+        padding-bottom: 20px;
+        box-sizing: border-box;
+        padding-left: 0px;
+    }
+
+    .slider-container {
+        position: relative;
+        width: 85%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    /* 圖片包裹層 */
+    .slider-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    /* 展示區內的圖片 */
+    .slider-wrapper img {
+        width: 100%;
+        flex-shrink: 0;
+        /* 防止圖片被壓縮 */
+        display: block;
+    }
+
+    /* 左右控制按鈕通用樣式 */
+    .slide-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(29, 53, 39, 0.7);
+        /* 深綠半透明背景 */
+        border: 2px solid #808184;
+        /* 您原有的灰色邊框 */
+        color: white;
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+        /* 圓形按鈕 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+    }
+
+    .slide-btn:hover {
+        background-color: white;
+        color: #1D3527;
+    }
+
+    .prev-btn {
+        left: 15px;
+    }
+
+
+    .next-btn {
+        right: 15px;
+    }
+
+    /* ============================================================= */
+
+
+    .second-cover {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+
+        /* ✨ 新增：上方和左方空出 80px，剛好放下 60px 的按鈕並留點呼吸空間 */
+        padding-top: 50px;
+        padding-left: 40px;
+
+        /* 確保 padding 不會把整個容器撐爆 */
+        box-sizing: border-box;
+    }
+
+
+    .back-btn {
+        position: fixed;
+        top: 1%;
+        left: 0%;
+        background-color: transparent;
+        border: 0px;
+        padding: 1vw;
+        /* 內邊距等比例縮放 */
+        z-index: 99999;
+    }
+
+    /* 返回按鈕的圖片尺寸 */
+    .back-btn img {
+        /* ✨ 返回按鈕：隨視窗變動(6vw)，最小不小於 40px，最大不超過 65px */
+        width: clamp(40px, 3vw, 65px);
+        display: block;
+    }
+
+    .back-btn img:hover {
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+</style>
+
+<body>
+
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>Role Playing, 2026 | 角色扮演, 2026 </b><br>
+                Interactive video game installation, dimensions variable<br>
+                互動遊戲裝置，尺寸可變
+            </p>
+
+            <!-- 左右控制按鈕 -->
+            <button class="slide-btn prev-btn">❮</button>
+            <button class="slide-btn next-btn">❯</button>
+
+            <!-- 圖片清單（您可以根據需求自行複製增加更多 <img>） -->
+            <div class="slider-wrapper">
+                <img src="/works/gameplay1.png" alt="slide1">
+                <img src="/works/gameplay2.png" alt="slide2">
+                <img src="/works/gameplay3.png" alt="slide3">
+            </div>
+        </div>
+    </div>
+
+
+    <button class="back-btn">
+        <a href="/index.html"><img src="/images/nav_btn.png">
+        </a>
+    </button>
+
+    <script>
+        const wrapper = document.querySelector('.slider-wrapper');
+        const slides = document.querySelectorAll('.slider-wrapper img');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            // 計算每次位移的百分比，並透過 CSS transform 滑動
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides; // 播到最後一張會回到第一張
+            updateSlider();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; // 播到第一張會回到最後一張
+            updateSlider();
+        });
+    </script>
+</body>
+
+</html>
