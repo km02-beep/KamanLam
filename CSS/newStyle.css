@@ -1,0 +1,485 @@
+       /* ===========================【 sildshow caption 】=========================== */
+       .slider-container p {
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(255, 255, 255);
+           text-align: left;
+           position: absolute;
+           top: 3%;
+           left: 3%;
+           z-index: 20;
+           line-height: 1.6;
+           letter-spacing: 0.1vw;
+           text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+       }
+
+       .slider-container p b {
+           font-size: clamp(11px, 1vw, 12px);
+           display: block;
+           text-decoration: underline;
+           text-decoration-style: wavy;
+           text-underline-offset: 0.3vw;
+           /* 底線距離也等比例縮放 */
+           margin-bottom: -0.5vw;
+       }
+
+       /*silde show*/
+       .slider-section {
+           width: 100%;
+           /* 強制外層撐滿 100% 寬度，提供置中空間 */
+           padding-top: 0px;
+           padding-bottom: 20px;
+           box-sizing: border-box;
+           padding-left: 0px;
+       }
+
+       .slider-container {
+           position: relative;
+           width: 85%;
+           margin: 0 auto;
+           overflow: hidden;
+       }
+
+       /* 圖片包裹層 */
+       .slider-wrapper {
+           display: flex;
+           transition: transform 0.5s ease-in-out;
+           width: 100%;
+       }
+
+       /* 展示區內的圖片 */
+       .slider-wrapper img {
+           width: 100%;
+           flex-shrink: 0;
+           /* 防止圖片被壓縮 */
+           display: block;
+       }
+
+       /* 左右控制按鈕通用樣式 */
+       .slide-btn {
+           position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           background-color: rgba(29, 53, 39, 0);
+           /* Keeps your transparent background */
+           color: white;
+           font-size: 30px;
+           width: 45px;
+           height: 45px;
+           cursor: pointer;
+           z-index: 10;
+           border-radius: 50%;
+           border: 0px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           user-select: none;
+           text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+
+           /* ✨ ADDED: Completely hidden by default */
+           opacity: 0;
+
+           /* ✨ ADDED: Smooth 0.3s fading transition when mouse enters/leaves the slider area */
+           transition: background-color 0.2s, color 0.2s, opacity 0.3s ease;
+       }
+
+       /* ✨ ADDED: When hovering over the slider-container, make the buttons appear smoothly */
+       .slider-container:hover .slide-btn {
+           opacity: 1;
+       }
+
+       /* Keeps your updated hover states exactly the same */
+       .slide-btn:hover {
+           background-color: white;
+           color: #000000;
+       }
+
+       .prev-btn {
+           left: 15px;
+       }
+
+       .next-btn {
+           right: 15px;
+       }
+
+
+       .slider-caption {
+           width: 85%;
+           /* 寬度與上面的 .slider-container 保持一模一樣 */
+           margin: 20px auto 0;
+           padding-left: 0px;
+           /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
+           text-align: left;
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(255, 255, 255);
+           z-index: 20;
+           line-height: 1.6;
+           letter-spacing: 0.1vw;
+       }
+
+       .slider-caption-black {
+           width: 85%;
+           /* 寬度與上面的 .slider-container 保持一模一樣 */
+           margin: 20px auto 0;
+           padding-left: 0px;
+           /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
+           text-align: left;
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(0, 0, 0);
+           z-index: 20;
+           line-height: 1.6;
+           letter-spacing: 0.1vw;
+       }
+
+       /* ===========================【 youtube 】=========================== */
+
+       .video-section {
+           width: 100%;
+           padding-top: clamp(30px, 7vw, 100px);
+           padding-bottom: clamp(40px, 10vw, 100px);
+           /*video bottom padding*/
+           box-sizing: border-box;
+       }
+
+       .youtube-container {
+           width: 70%;
+           margin: 0 auto;
+           position: relative;
+           padding-bottom: 42.8%;
+           height: 0;
+           overflow: hidden;
+           border: 1px solid #808184;
+       }
+
+       .youtube-container iframe {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+       }
+
+       /* =================【 ✨ Horizontal Scroll Gallery Section 】================= */
+       .gallery-caption {
+           width: 85%;
+           margin: 20px auto 0;
+           padding-left: 0px;
+           text-align: left;
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(255, 255, 255);
+           z-index: 20;
+           line-height: 1.2;
+           letter-spacing: 0.1vw;
+       }
+
+       .gallery-caption-black {
+           width: 85%;
+           margin: 20px auto 0;
+           padding-left: 0px;
+           text-align: left;
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(0, 0, 0);
+           z-index: 20;
+           line-height: 1.2;
+           letter-spacing: 0.1vw;
+       }
+
+       .gallery-section {
+           width: 100%;
+           padding-top: clamp(30px, 7vw, 100px);
+           padding-bottom: clamp(20px, 4vw, 60px);
+           box-sizing: border-box;
+       }
+
+       .gallery-grid {
+           /* ✨ CHANGE: Convert Grid into Flexbox for single-row scrolling */
+           display: flex;
+           flex-wrap: nowrap;
+           width: 85%;
+           margin: 0 auto;
+           gap: 30px;
+           overflow-x: auto;
+           overflow-y: hidden;
+           padding-bottom: 15px;
+           /* Tiny padding at the bottom so the scrollbar doesn't clip the image borders */
+
+           /* Optional: Makes scrolling feel smooth and premium on touch devices */
+           -webkit-overflow-scrolling: touch;
+       }
+
+       /* Custom Scrollbar Styling (Keeps it clean and minimal matching your theme) */
+       .gallery-grid::-webkit-scrollbar {
+           height: 6px;
+           /* Sleek, thin bar width */
+       }
+
+       .gallery-grid::-webkit-scrollbar-track {
+           background: rgba(29, 53, 39, 0.5);
+           /* Faint background color */
+       }
+
+       .gallery-grid::-webkit-scrollbar-thumb {
+           background: #14b539;
+           border-radius: 3px;
+       }
+
+       .gallery-item {
+           display: flex;
+           align-items: flex-end;
+           justify-content: center;
+           flex: 0 0 auto;
+           width: auto;
+           height: auto;
+       }
+
+       .gallery-item img {
+           height: 500px;
+           width: auto;
+           object-fit: contain;
+           cursor: zoom-in;
+           /* Kept: Indicates they can still be clicked to expand full screen */
+           transition: opacity 0.2s;
+           display: block;
+       }
+
+       .gallery-item img:hover {
+           opacity: 0.85;
+       }
+
+       /* =================【 lightbox -- image zoom】================= */
+       .lightbox {
+           display: none;
+           position: fixed;
+           z-index: 999999;
+           left: 0;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           background-color: rgba(32, 32, 32, 0.95);
+           justify-content: center;
+           align-items: center;
+           cursor: zoom-out;
+       }
+
+       .lightbox-content {
+           max-width: 90%;
+           max-height: 85%;
+           object-fit: contain;
+           animation: zoomInAnim 0.3s ease;
+           /* 彈出時的放大動畫 */
+       }
+
+       .lightbox-close {
+           position: absolute;
+           top: 20px;
+           right: 35px;
+           color: #fff;
+           font-size: 40px;
+           font-weight: bold;
+           cursor: pointer;
+           user-select: none;
+       }
+
+       .lightbox-close:hover {
+           color: #808184;
+       }
+
+       @keyframes zoomInAnim {
+           from {
+               transform: scale(0.95);
+               opacity: 0;
+           }
+
+           to {
+               transform: scale(1);
+               opacity: 1;
+           }
+       }
+
+       /* 左右按鈕的基礎通用樣式 */
+       .lightbox-btn {
+           position: absolute;
+           top: 50%;
+           transform: translateY(-50%);
+           background-color: rgba(29, 53, 39, 0);
+           /* 與您網頁一致的深綠半透明 */
+           border: 0;
+           /* 灰色邊框 */
+           color: white;
+           font-size: clamp(16px, 2.5vw, 30px);
+           /* 按鈕文字隨視窗比例縮放 */
+           width: clamp(35px, 5vw, 45px);
+           /* 按鈕寬高隨視窗比例縮放 */
+           height: clamp(35px, 5vw, 45px);
+           cursor: pointer;
+           z-index: 9999999;
+           /* 層級必須高於大圖 */
+           border-radius: 50%;
+           /* 圓形按鈕 */
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           user-select: none;
+           transition: background-color 0.2s, color 0.2s;
+       }
+
+       .lightbox-btn:hover {
+           background-color: white;
+           color: #1D3527;
+       }
+
+       /* 精確設定左按鈕與右按鈕在全螢幕上的位置 */
+       .lightbox-prev {
+           left: 4%;
+       }
+
+       .lightbox-next {
+           right: 4%;
+       }
+
+       /* =================【 single-image-section】================= */
+       .single-image-section {
+           display: flex;
+           justify-content: center;
+           /* ✨ 核心：讓內部的圖片水平左右置中 */
+           width: 100%;
+           /* 撐滿整個視窗寬度提供置中空間 */
+           padding-top: 40px;
+           /* 與上方輪播圖說明文字保持 40px 的呼吸間距 */
+           padding-bottom: 40px;
+           /* 與下方元件保持間距 */
+           box-sizing: border-box;
+       }
+
+       .single-image-section img {
+           display: block;
+           height: auto;
+       }
+
+
+
+       /* =================【 back button 等比例縮放修正 】================= */
+       .back-btn {
+           position: fixed;
+           top: 0%;
+           left: 0%;
+           background-color: transparent;
+           border: 0px;
+           padding: 1vw;
+           /* 內邊距隨著視窗縮放 */
+           z-index: 99999;
+           animation: ballBounce 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+
+           /* 設定變形軸心在按鈕底部，這樣落地擠壓時才會貼著地面壓扁 */
+           transform-origin: bottom center;
+       }
+
+       /* ✨ 新增：確保 a 標籤完全包裹並決定按鈕的大小 */
+       .back-btn a {
+           display: block;
+           width: clamp(35px, 5vw, 60px);
+           height: clamp(35px, 5vw, 60px);
+       }
+
+       .back-btn img {
+           width: 100%;
+           /* 圖片百分之百填滿外層 a 標籤的寬度 */
+           height: 100%;
+           /* 圖片百分之百填滿外層 a 標籤的高度 */
+           display: block;
+           transition: transform 0.2s;
+       }
+
+       .back-btn img:hover {
+           clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+       }
+
+       @keyframes ballBounce {
+
+           0%,
+           100% {
+               /* 0% 和 100% 代表皮球在最高點：速度最慢，形狀恢復正常 */
+               transform: translateY(0px) scale(1, 1);
+           }
+
+           45% {
+               /* 下落中途：重力拉扯，皮球被微微拉長 */
+               transform: translateY(35px) scale(0.95, 1.05);
+           }
+
+           50% {
+               /* 50% 剛好撞擊地面（最低點）：
+           translateY(45px): 往下衝擊的距離
+           scale(1.2, 0.75): 關鍵！水平拉寬到 1.2 倍，垂直壓扁至 0.75 倍，模擬皮球著地變形
+        */
+               transform: translateY(40px) scale(1.2, 0.75);
+           }
+
+           55% {
+               /* 剛反彈離開地面：釋放衝擊力，再次微微拉長向上衝 */
+               transform: translateY(35px) scale(0.95, 1.05);
+           }
+       }
+
+
+       /* =========================== end text ========================== */
+       .end-caption {
+           width: 85%;
+           margin: 10px auto 0;
+           padding-top: 30px;
+           /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
+           text-align: center;
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(255, 255, 255);
+           z-index: 20;
+           line-height: 1.7;
+           letter-spacing: 0.1vw;
+       }
+
+       .end-caption b {
+           font-size: clamp(11px, 1vw, 12px);
+           display: block;
+           text-decoration: none;
+           text-decoration: underline;
+           text-decoration-style: wavy;
+           text-underline-offset: 3px;
+           margin-bottom: -1px;
+           /* 清除全域 p b 帶來的外邊距 */
+       }
+
+       /* =========================== footer ========================== */
+       footer {
+           width: 100%;
+           padding-top: clamp(20px, 4vw, 10px);
+           /* 與上方影片區塊保持寬裕的 60px 呼吸間距 */
+           padding-bottom: clamp(10px, 1.5vw, 100px);
+           /* 距離網頁最底端留白 30px */
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           box-sizing: border-box;
+           clear: both;
+       }
+
+       p.footer-text {
+           position: static !important;
+           text-align: center;
+           font-size: clamp(8px, 0.9vw, 10px);
+           color: #9b9b9b;
+           letter-spacing: 0.5px;
+           line-height: 1.6;
+           margin: 0 auto;
+           padding: 0px;
+           text-shadow: none;
+       }
+
+       p.footer-text-black {
+           position: static !important;
+           text-align: center;
+           font-size: clamp(8px, 0.9vw, 10px);
+           color: #252525;
+           letter-spacing: 0.5px;
+           line-height: 1.6;
+           margin: 0 auto;
+           padding: 0px;
+           text-shadow: none;
+       }

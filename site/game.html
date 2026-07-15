@@ -1,37 +1,126 @@
 <!DOCTYPE html>
-    <link rel="stylesheet" href="/css/siteStyle-W.css">
+<link rel="stylesheet" href="/CSS/newStyle.css">
 
-    <body>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
 
-        <section>
-            <img src="/works/gCover.jpg" alt="poster" width="100%"> 
-            <p><b>Post Contemporary Game Zone, 2020 | 後當代線上遊戲地帶, 2020</b><br>
-               Flash Game, Online Exhibition | Flash 遊戲，虛擬展覽<br><br>
-               Post Contemporary Game Zone published in October, 2020 on <a href="https://popo-post-art-group.itch.io/" target="_blank">itch.io</a><br>
-               Google Chrome stop supporting Flash in December, 2020<br>
-               The game file can be downloaded on the <a href="https://archive.org/details/v2_20201119poGame" target="_blank">Internat Archive</a>
+    body {
+        background-color: rgb(255, 255, 255);
+    }
+
+    .slider-container p {
+        /* 🎯 核心修改：將本頁的內文改成高質感灰色 #808184（您可以自由更換為黑色 #000000） */
+        color: #000000 !important;
+        text-shadow: 0 0 0 #000000;
+
+    }
+
+    .slider-container p b {
+        /* 🎯 核心修改：將第一行粗體字的標題也改成高質感灰色 #808184 */
+        color: #000000 !important;
+        text-shadow: 0 0 0 #000000;
+        text-decoration-color: #000000 !important;
+    }
+
+    .book-view {
+        width: 100%;
+        background-color: #000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: clamp(40px, 8vw, 100px);
+        padding-bottom: clamp(40px, 8vw, 100px);
+        box-sizing: border-box;
+        /* 防止 padding 撐爆寬度 */
+    }
+
+    .book-view img {
+        display: block;
+        height: auto;
+        border: none;
+    }
+
+    .youtube-container {
+        width: 70%;
+        margin: 0 auto;
+        position: relative;
+        padding-bottom: 42.8%;
+        height: 0;
+        overflow: hidden;
+        border: none;
+    }
+</style>
+
+<body>
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>Post Contemporary Game Zone | 後當代線上遊戲地帶, 2020 </b><br>
+                Flash Game, Online Exhibition<br>
+                Flash 遊戲，虛擬展覽<br><br>
             </p>
-        </section>
+            <button class="slide-btn prev-btn">❮</button>
+            <button class="slide-btn next-btn">❯</button>
 
-        <section class="book-view">
-            <img src="/works/g1.jpg" alt="poster" width="70%"> 
-        </section>
+            <div class="slider-wrapper">
+                <img src="/works/flashCover.jpg" alt="slide1">
+                <img src="/works/flashGame1.jpg" alt="slide2">
+                <img src="/works/flashGame3.jpg" alt="slide3">
+            </div>
+            <div>
+                <img src="/works/flashGameText.png" alt="text" width="100%">
+            </div>
+        </div>
 
-        <section class="two-side">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FPopoPostArtGroup%2Fvideos%2F1663477943820919%2F&show_text=0&width=560" width="560" height="316" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-            <img src="/works/g2.png" height="316px">
-        </section>
+        <div class="slider-caption-black" style="padding-bottom:5%">
+            Post Contemporary Game Zone published in October, 2020 on <a href="https://popo-post-art-group.itch.io/"
+                target="_blank">itch.io</a><br>
+            Google Chrome stop supporting Flash in December, 2020<br>
+            The game file can be downloaded on the <a href="https://archive.org/details/v2_20201119poGame"
+                target="_blank">Internat Archive</a>
+        </div>
+    </div>
 
+    <section class="book-view">
+        <img src="/works/flashGameIntro.jpg" alt="poster" width="70%">
+    </section>
 
+    <div class="video-section">
+        <div class="youtube-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-lX26NAs9-0?si=rUIW6z0O2QfCbjM6"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
 
-    </body>
+    <div
+        style="display: flex; justify-content: center; align-items: center; width: 70%; height: 300px; gap: 1%; margin: 0 auto; padding-bottom: 8%">
+        <!-- flex: 1 讓兩張圖平分寬度；max-height 確保高度不超過外層容器 -->
+        <div style="flex: 1; height: 100%;">
+            <img src="/works/flashGame.gif" alt="gif 1" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="flex: 1; height: 100%;">
+            <img src="/works/flashGame2.jpg" alt="gif 2" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </div>
 
     <button class="back-btn">
-        <a href="/index.html"><img src="/images/nav_btnB.png"><p>Back</p></a>
+        <a href="/index.html"><img src="/images/nav_btnB.png" alt="back">
+        </a>
     </button>
-    
+
     <footer>
-     <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
+        <p class="footer-text-black"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
     </footer>
+
+    <script src="/script.js"></script>
+
+</body>
+
+
 
 </html>

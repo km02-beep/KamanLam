@@ -1,69 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="/css/siteStyle.css">
+<link rel="stylesheet" href="/css/newStyle.css">
 
-    <body>
-        <div class="cover">
-            <img src="/works/threadCover.jpg" alt="thread" width="100%">
-        </div>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
 
+    body {
+        background-color: rgb(205, 202, 188);
+    }
+</style>
 
-       
-        <section class="work-info">
-            <iframe width="600" height="400" src="https://www.youtube.com/embed/4_EYDjgwYks?si=XvWMVh8gtD0rYTGi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p> <b>Thread, 2022 |  線, 2022 </b><br> Cotton thread, cable clip, needle, canvas, bamboo plate holder <br> 綿線、電線碼、針、畫布、竹製碟架</p>
-        </section>
+<body>
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>Thread | 線, 2022 </b><br>
+                Cotton thread, cable clip, needle, canvas, bamboo plate holder<br>
+                Dimensions variable<br>
+                綿線、電線碼、針、畫布、竹製碟架<br>
+                尺寸可變<br>
+            </p>
+            <button class="slide-btn prev-btn">❮</button>
+            <button class="slide-btn next-btn">❯</button>
 
-        <!-- <section>
-        <div class="scroll-container">
-            <img src="/works/threadSlide_1.JPG" alt="thread">
-            <img src="/works/threadSlide_2.JPG" alt="thread">
-            <img src="/works/threadSlide_3.JPG" alt="thread">
-            <img src="/works/threadSlide_4.JPG" alt="thread">
-            <img src="/works/threadSlide_5.JPG" alt="thread">
-            <img src="/works/threadSlide_6.JPG" alt="thread">
-            <img src="/works/threadSlide_7.JPG" alt="thread">
-            <img src="/works/threadSlide_8.JPG" alt="thread">
-            <img src="/works/threadSlide_9.JPG" alt="thread">
-        </div>
-        </section> -->
-
-        <section class="image-container">
             <div class="slider-wrapper">
-                <div class="slider">
-                    <img src="/works/threadSlide_1.JPG" alt="Thread" id="slide-1">
-                    <img src="/works/threadSlide_2.JPG" alt="Thread" id="slide-2">
-                    <img src="/works/threadSlide_3.JPG" alt="Thread" id="slide-3">
-                    <img src="/works/threadSlide_4.JPG" alt="Thread" id="slide-4">
-                    <img src="/works/threadSlide_5.JPG" alt="Thread" id="slide-5">
-                    <img src="/works/threadSlide_6.JPG" alt="Thread" id="slide-6">
-                    <img src="/works/threadSlide_7.JPG" alt="Thread" id="slide-7">
-                    <img src="/works/threadSlide_8.JPG" alt="Thread" id="slide-8">
-                    <img src="/works/threadSlide_9.JPG" alt="Thread" id="slide-9">
-                </div>
-
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
-                    <a href="#slide-4"></a>
-                    <a href="#slide-5"></a>
-                    <a href="#slide-6"></a>
-                    <a href="#slide-7"></a>
-                    <a href="#slide-8"></a>
-                    <a href="#slide-9"></a>
-                </div>
+                <img src="/works/threadCover.jpg" alt="slide1">
+                <img src="/works/threadSlide_9.jpg" alt="slide2">
+                <img src="/works/threadSlide_1.jpg" alt="slide3">
             </div>
-        </section>
-    </body>
+        </div>
+
+        <div class="slider-caption-black">
+            Name card sewing services <br>
+        </div>
+
+
+        <div class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="/works/thread.gif" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/threadSlide_2.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/threadSlide_3.jpg" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/threadSlide_4.jpg" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/threadSlide_5.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/threadSlide_6.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/threadSlide_7.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/thread2.gif" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/threadSlide_8.jpg" alt="Exhibition View Asset Index"></div>
+            </div>
+
+            <div class="gallery-caption-black">
+                <b>Popo-post Art Group's Projects</b><br>
+                <u><b>Related Exhibition:</b></u> Mist Service <br>
+                <u><b>Location:</b></u> Mist Gallery, Hong Kong<br>
+                <u><b>Date:</b></u> 7 - 28 Augest, 2026
+            </div>
+        </div>
+
+        <div class="single-image-section">
+            <img src="/works/threadSlide_10.jpg" alt="thread" width="50%" style="padding-bottom: 50px;">
+        </div>
+
+        <div id="image-lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-btn lightbox-prev">❮</button>
+            <button class="lightbox-btn lightbox-next">❯</button>
+            <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+        </div>
 
         <button class="back-btn">
-            <a href="/index.html"><img src="/images/nav_btn.png"><p>Back</p></a>
+            <a href="/index.html"><img src="/images/nav_btnB.png" alt="back">
+            </a>
         </button>
 
-        
-    <footer>
-        <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
-    </footer>
+        <footer>
+            <p class="footer-text-black"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+        </footer>
+
+        <script src="/script.js"></script>
+</body>
 
 </html>

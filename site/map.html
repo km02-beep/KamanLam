@@ -1,80 +1,181 @@
 <!DOCTYPE html>
-    <link rel="stylesheet" href="/css/siteStyle.css">
+<link rel="stylesheet" href="/css/newStyle.css">
 
-    <body>
-        <section>
-            <img src="/works/kCover.JPG" alt="poster" class="kCover"> 
-        </section>
-        
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgb(41, 41, 41);
+    }
+
+    /* =================【 ✨ 滑鼠移入（Hover）圖片持續震動 】================= */
+
+    /* 1. 兩張一橫行的網格佈局（保持您的優良結構） */
+    .shake-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 兩欄排版 */
+        width: 80%;
+        margin: 0 auto;
+        gap: 40px;
+        padding-top: clamp(5px, 10vw, 100px);
+        padding-bottom: clamp(30px, 10vw, 70px);
+    }
+
+    .shake-gallery-item img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border: 1px solid #808184;
+        display: block;
+        cursor: pointer;
+        transform-origin: center center;
+        /* 震動時以圖片中心為軸心 */
+
+        /* ✨ 新增：加入平滑恢復的轉場，當滑鼠離開時，圖片會柔和地回到原位 */
+        transition: transform 0.2s ease;
+    }
+
+    /* 🎯 關鍵修改：當滑鼠移入（:hover）圖片時，立刻觸發無限循環的劇烈震動 */
+    .shake-gallery-item img:hover {
+        /* 0.35s: 震動速度（數字越小動得越快、越麻）
+       infinite: 滑鼠停在上面時會無限持續震動*/
+        animation: intenseHoverShake 0.6s ease-in-out infinite;
+    }
+
+    /* 🎬 保持您最滿意的真實劇烈上下左右扭動震動軌跡 */
+    @keyframes intenseHoverShake {
+
+        0%,
+        100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+
+        10% {
+            transform: translate(-3px, 1px) rotate(-1deg);
+        }
+
+        20% {
+            transform: translate(2px, -2px) rotate(1.5deg);
+        }
+
+        30% {
+            transform: translate(-4px, -1px) rotate(-1.5deg);
+        }
+
+        40% {
+            transform: translate(3px, 2px) rotate(1deg);
+        }
+
+        50% {
+            transform: translate(-2px, 1px) rotate(-0.5deg);
+        }
+
+        60% {
+            transform: translate(2px, -1px) rotate(1.5deg);
+        }
+
+        70% {
+            transform: translate(-3px, 2px) rotate(-1deg);
+        }
+
+        80% {
+            transform: translate(1px, 1px) rotate(0.5deg);
+        }
+
+        90% {
+            transform: translate(-1px, -1px) rotate(-0.5deg);
+        }
+    }
+</style>
+
+<body>
+
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>PHS Exhibition Map | PHS展覽平面圖, 2023 </b><br>
+                Mylar film, Butter paper, transparent film, card board, sticker<br>
+                透明膠片、牛油紙、硬卡紙、貼紙<br>
+                14.5 x 19 cm | 14.5 x 19厘米<br>
+            </p>
+            <button class="slide-btn prev-btn">❮</button>
+            <button class="slide-btn next-btn">❯</button>
+
+            <div class="slider-wrapper">
+                <img src="/works/k4.jpg" alt="slide1">
+                <img src="/works/k6.jpg" alt="slide2">
+            </div>
+        </div>
+        <div class="slider-caption">
+            Definite location, ambiguous guide<br>
+            明確位置，含糊指南。
+        </div>
+
+
+        <div class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="/works/kCover.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/k5.jpg" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/k7.jpg" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/k2.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/k8.jpg" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/k3.jpg" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/k10.gif" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works/k9.jpg" alt="Exhibition View Asset Index"></div>
+            </div>
+
+            <div class="gallery-caption">
+                <b>Popo-post Art Group's Projects</b><br>
+                <u>Related Exhibition:</u> PoPo-Post Migration Centre <br>
+                <u>Location:</u> Philosopher's Stone, Seoul, South Korea<br>
+                <u>Date:</u> 5 - 28 May, 2023
+            </div>
+        </div>
+
+        <div id="image-lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-btn lightbox-prev">❮</button>
+            <button class="lightbox-btn lightbox-next">❯</button>
+            <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+        </div>
+
+        <!-- 6 張相片，兩張一橫行展示區 -->
+        <div class="shake-gallery-section">
+            <div class="shake-gallery-grid">
+                <!-- 圖片 1-6 -->
+                <div class="shake-gallery-item"><img src="/works/map-01.jpg" alt="作品 1"></div>
+                <div class="shake-gallery-item"><img src="/works/map-02.jpg" alt="作品 2"></div>
+                <div class="shake-gallery-item"><img src="/works/map-03.jpg" alt="作品 3"></div>
+                <div class="shake-gallery-item"><img src="/works/map-04.jpg" alt="作品 4"></div>
+                <div class="shake-gallery-item"><img src="/works/map-05.jpg" alt="作品 5"></div>
+                <div class="shake-gallery-item"><img src="/works/map-06.jpg" alt="作品 6"></div>
+            </div>
+        </div>
+
+        <div class="video-section">
+            <div class="youtube-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/F2CyoE8rRdU?si=_jy8dZum0BgQ9RGe"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
         <button class="back-btn">
-            <a href="/index.html"><img src="/images/nav_btn.png"><p>Back</p></a>
+            <a href="/index.html"><img src="/images/nav_btn.png">
+            </a>
         </button>
 
-        <section class="image-container">
-            <div class="slider-wrapper">
-                <div class="slider">
-                    <img src="/works/k2.jpg" alt="Thread" id="slide-1">
-                    <img src="/works/k3.jpg" alt="Thread" id="slide-2">
-                    <img src="/works/k4.jpg" alt="Thread" id="slide-3">
-                    <img src="/works/k1.jpg" alt="Thread" id="slide-4">
-                    <img src="/works/k5.jpg" alt="Thread" id="slide-5">
-                </div>
+        <footer>
+            <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+        </footer>
 
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
-                    <a href="#slide-4"></a>
-                    <a href="#slide-5"></a>
-                </div>
-            </div>
-        </section>
-
-        <section class="work-info">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/F2CyoE8rRdU?si=mvw6XjKqS4asuiwH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <img src="/works/map-01.jpg" alt="map" height="315px" class="shake-img">
-            <p><b>PHS Exhibition Map, 2023 | PHS展覽平面圖, 2023</b><br>
-                  Mylar film, Butter paper, transparent film, card board, sticker <br> 透明膠片、牛油紙、硬卡紙、貼紙<br>
-                  14.5 x 19 cm | 14.5 x 19厘米</p>
-        </section>
-        <style>
-           .shake-img:hover {
-           animation: shake 0.5s;
-           animation-iteration-count: infinite;
-           }
-
-           @keyframes shake {
-             0% { transform: translate(1px, 1px) rotate(0deg); }
-             10% { transform: translate(-1px, -2px) rotate(-1deg); }
-             20% { transform: translate(-3px, 0px) rotate(1deg); }
-             30% { transform: translate(3px, 2px) rotate(0deg); }
-             40% { transform: translate(1px, -1px) rotate(1deg); }
-             50% { transform: translate(-1px, 2px) rotate(-1deg); }
-             60% { transform: translate(-3px, 1px) rotate(0deg); }
-             70% { transform: translate(3px, 1px) rotate(-1deg); }
-             80% { transform: translate(-1px, -1px) rotate(1deg); }
-             90% { transform: translate(1px, 2px) rotate(0deg); }
-             100% { transform: translate(1px, -2px) rotate(-1deg); }
-           }
-        </style>
+        <script src="/script.js"></script>
+</body>
 
 
-        <section>
-        <div class="scroll-container">
-            <img src="/works/map-02.jpg" alt="map">
-            <img src="/works/map-03.jpg" alt="map">
-            <img src="/works/map-04.jpg" alt="map">
-            <img src="/works/map-05.jpg" alt="map">
-            <img src="/works/map-06.jpg" alt="map">
-        </div>
-        </section>
-        
-
-
-    </body>
-
-
-    <footer>
-        <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
-    </footer>
 </html>
