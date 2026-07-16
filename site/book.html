@@ -1,63 +1,192 @@
 <!DOCTYPE html>
-    <link rel="stylesheet" href="/css/siteStyle.css">
+<link rel="stylesheet" href="/css/newStyle.css">
 
-    <body>
-        <section class="image-container">
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgb(42, 42, 42);
+    }
+
+    .gallery-grid::-webkit-scrollbar-track {
+        background: rgba(98, 98, 98, 0.3);
+        /* Faint background color */
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb {
+        background: #00a6ff;
+        border-radius: 3px;
+    }
+
+    .youtube-container {
+        width: 70%;
+        margin: 0 auto;
+        position: relative;
+        padding-bottom: 40%;
+        height: 0;
+        overflow: hidden;
+        border: none;
+    }
+
+    .gallery-caption a {
+        color: #00a6ff;
+    }
+
+    /* 💻 全裝置通用：左右並列、整體置中容器 */
+    .image-gallery-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+        margin: 40px auto;
+        gap: 30px;
+    }
+
+    /* 圖片的外包裝：決定兩張圖平分寬度 */
+    .gallery-image-box {
+        flex: 1;
+        max-width: 650px;
+    }
+
+    /* 圖片本體：隨外框自動縮放 */
+    .gallery-image-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #00a6ff;
+    }
+
+    /* 📱 手機版 RWD 自動優化（當螢幕太窄裝不下兩張並列時） */
+    @media (max-width: 768px) {
+        .image-gallery-container {
+            width: 90%;
+            /* 手機版放寬兩側，讓出更多空間給圖片 */
+            gap: 15px;
+            /* 縮小圖片之間的間距 */
+            margin: 20px auto;
+            /* 縮小上下外邊距 */
+        }
+    }
+</style>
+
+<body>
+
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>Comprehend a book on the bed | 在床上理解一本書, 2019 </b><br>
+                A chapter from a book, correction fluid, zine publication<br>
+                A5 (14.85 x 21cm), 3 pages<br>
+                書本章節、塗改液, 小誌出版物<br>
+                A5 (14.85 x 21 厘米), 3頁
+            </p>
+            <button class="slide-btn prev-btn">❮</button>
+            <button class="slide-btn next-btn">❯</button>
+
             <div class="slider-wrapper">
-                <div class="slider">
-                    <img src="/works/b1.jpg" alt="Thread" id="slide-1">
-                    <img src="/works/b2.jpg" alt="Thread" id="slide-2">
-
-                </div>
-
-                <div class="slider-nav">
-                    <a href="#slide-1"></a>
-                    <a href="#slide-2"></a>
-                </div>
+                <img src="/works/b6.jpg" alt="slide1">
+                <img src="/works/b7.jpg" alt="slide2">
             </div>
-        </section>
-
-        <section class="book-text">
-            <p><b>Comprehend a book on the bed, 2019 | 在床上理解一本書, 2019</b><br>
-               A chapter from a book, correction fluid | 書本章節、塗改液<br>
-               Zine publication  |  小誌出版物 <br>
-               A5 (14.85 x 21cm), 3 pages | A5 (14.85 x 21 厘米), 3頁<br><br>
-               Explaining dreams by using a lots of “dream”.<br>
-               你用了很多個「夢」來解釋夢。<br><br>
-               (The Chinese character「梦」means “dream”)<br>
-            </p></div>
-        </section>
-
-        <section class="book-card">
-            <img src="/works/promotion card_chi.jpg">
-            <img src="/works/promotion card_eng.jpg">
-        </section>
-
-
-
-        <section>
-        <div class="scroll-book">
-            <img src="/works/b3.jpg" alt="zine1">
-            <img src="/works/b4.jpg" alt="zine2">
-            <img src="/works/b5.jpg" alt="zine3">
-            <img src="/works/tk_2019.jpg" alt="zine4">
         </div>
-        </section>
-        
-        <section class="book-video">
-            <iframe src="https://www.facebook.com/plugins/video.php?height=315&href=https%3A%2F%2Fwww.facebook.com%2FPopoPostArtGroup%2Fvideos%2F411520496348780%2F&show_text=false&width=560&t=0" width="600" height="355" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-        </section>
+
+        <div class="slider-caption">
+            Explaining dreams by using a lots of “dream”.<br>
+            (The Chinese character「梦」means “dream”)<br>
+            用了很多個「夢」來解釋夢。
+        </div>
+    </div>
+
+
+    <div class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="/works/b5.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b3.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b4.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b9.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b_tk.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b8.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b10.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b19.jpg" alt="Exhibition View Asset Index"></div>
+        </div>
+
+        <div class="gallery-caption">
+            <b>Popo-post Art Group's Projects</b><br>
+
+            <u>Related Exhibition:</u> Real Estate Zine- Bedtime Story <br>
+            <u>Location:</u>Front/SiDE Gallery, JCCAC, Hong Kong<br>
+            <u>Date:</u> 11-30 April, 2019<br><br>
+
+            <u>Related Event:</u> Real Estate Zine Bedtime Story: Launch With PoPoPost Art Group <br>
+            <u>Location:</u>Room 03-206, Barrack Block, Tai Kwun, Hong Kong<br>
+            <u>Date:</u> 9 AUG 2019, 7pm-8:30pm<br><br>
+
+            Collected by <a href="https://aaa.org.hk/en/collections/search/library/real-estate-zine-bedtime-story"
+                target="_blank">Asia Art Archive</a><br>
+            Location code: ZIN.PAG5
+        </div>
+    </div>
+
+    <div class="image-gallery-container">
+        <div class="gallery-image-box">
+            <img src="/works/b_zine.jpg" alt="poster 1">
+        </div>
+        <div class="gallery-image-box">
+            <img src="/works/b_zine2.jpg" alt="poster 2">
+        </div>
+    </div>
+
+    <div id="image-lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-btn lightbox-prev">❮</button>
+        <button class="lightbox-btn lightbox-next">❯</button>
+        <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+    </div>
 
 
 
-        <button class="back-btn">
-            <a href="/index.html"><img src="/images/nav_btn.png"><p>Back</p></a>
-        </button>
+    <div class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="/works/b11.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b12.JPG" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b13.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b14.JPG" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b15.JPG" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b16.JPG" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b17.JPG" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/b18.JPG" alt="Exhibition View Asset Index"></div>
+        </div>
 
-    </body>
-    
-    <footer>
-     <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
-    </footer>
+        <div class="gallery-caption">
+            Inner pages first exhibit on the streets in Kwun Tong District <br>
+        </div>
+    </div>
+
+    <div class="video-section">
+        <div class="youtube-container">
+            <iframe
+                src="https://www.facebook.com/plugins/video.php?height=315&href=https%3A%2F%2Fwww.facebook.com%2FPopoPostArtGroup%2Fvideos%2F411520496348780%2F&show_text=false&width=560&t=0"
+                width="600" height="355" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowFullScreen="true"></iframe>
+        </div>
+    </div>
+
+
+    <button class="back-btn">
+        <a href="/index.html"><img src="/images/nav_btn.png">
+        </a>
+    </button>
+
+    <script src="/script.js"></script>
+</body>
+
+<footer>
+    <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+</footer>
+
 
 </html>
