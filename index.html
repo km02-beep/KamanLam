@@ -96,7 +96,6 @@
     <!--mydiv(ruler) java-->
     <div id="ruler">
         <img class="move" src="images/ruler.png" alt="ruler" width="650px">
-        <!-- 旋轉按鈕直接放在這裡 -->
         <div id="rotate-handle" title="按住拖曳即可旋轉">↻</div>
     </div>
 
@@ -187,34 +186,6 @@
         }
     </script>
 
-
-
-    <!--new window in mainpage-->
-    <script>
-        document.querySelectorAll('.ajax-link').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault(); // 阻止原有的跳轉新頁面行為
-
-                const url = this.getAttribute('href');
-                const displayArea = document.getElementById('content-display');
-
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) throw new Error('連線失敗');
-                        return response.text();
-                    })
-                    .then(html => {
-                        displayArea.innerHTML = html; // 塞入內容
-                        displayArea.style.display = 'block'; // 顯示容器
-                    })
-                    .catch(error => {
-                        console.error(error);
-                        displayArea.innerHTML = '<p>無法載入作品內容。</p>';
-                        displayArea.style.display = 'block';
-                    });
-            });
-        });
-    </script>
 
 </body>
 
