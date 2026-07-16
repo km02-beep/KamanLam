@@ -223,9 +223,9 @@ body {
     position: absolute;
     bottom: 8%;
     right: 4%;
-    width: 45vw;
+    width: 10vw;
     max-width: 650px;
-    min-width: 500px;
+    min-width: 600px;
     cursor: grab;
 }
 
@@ -364,14 +364,14 @@ body {
 
     /* 6. 鎖定圓形圖標，禁止變形 */
     .nav img {
-        width: 55px !important;
-        height: 55px !important;
+        width: 55px;
+        height: 55px;
     }
 
     /* 7. ✨ 下拉選單手機優化：因為按鈕現在在最左邊，選單必須「向右側展開」 */
     .nav div:hover .dropAbout {
-        position: absolute !important;
-        left: 105px !important;
+        position: absolute;
+        left: 105px;
         /* 💡 核心：往右推開 105px，完美呈現在按鈕的右手邊 */
         top: 0 !important;
         /* 與當前指到的按鈕頂部對齊 */
