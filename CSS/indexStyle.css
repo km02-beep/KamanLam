@@ -1,0 +1,417 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    background-image: url("/images/BG2.jpg"), url("/images/BGrepeat.jpg");
+    background-repeat: no-repeat, repeat-x;
+    background-attachment: fixed;
+    background-position: top left, 1700px 0px;
+    background-size: 1700px, 150.2px;
+    background-attachment: fixed;
+}
+
+.kamanMain {
+    width: 155px;
+    height: 32px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    font-family: "Lucida Console", "Courier New", monospace;
+    position: fixed;
+    top: 43.5px;
+    left: 43.5px;
+    font-size: 13px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.kamanMain a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.kamanMain a:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.intro {
+    width: 289px;
+    height: 28px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    font-family: "Lucida Console", "Courier New", monospace;
+    position: fixed;
+    top: 43.5px;
+    left: 194.5px;
+    font-size: 13px;
+    padding: 0px 5px;
+}
+
+.intro a:link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.intro a:visited {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.intro a:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+    text-decoration: underline;
+}
+
+.intro a:active {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+
+
+.nav {
+    display: flex;
+    position: fixed;
+    width: 450px;
+    top: 93px;
+    left: 45px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 0px solid;
+    z-index: 100;
+}
+
+.nav div {
+    width: 155px;
+    height: 100px;
+    text-align: center;
+}
+
+.nav .dropbtn:hover {
+    transform: scale(1.2);
+}
+
+.nav p {
+    font-size: 11px;
+    color: white;
+}
+
+.nav img {
+    width: 55px;
+    height: 55px;
+}
+
+
+.dropbtn {
+    background-color: transparent;
+    width: 90px;
+    height: 90px;
+    cursor: pointer;
+    border: 0px solid;
+    flex-shrink: 0;
+}
+
+.dropbtn a {
+    text-decoration: none;
+}
+
+.dropbtn:hover img {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+
+.dropAbout {
+    display: none;
+}
+
+.dropAbout img {
+    width: 90%;
+    height: auto;
+    align-content: center;
+    padding-bottom: 20px;
+}
+
+.nav div:hover .dropAbout {
+    display: block;
+    position: absolute;
+    width: 198px;
+    height: auto;
+    margin: 12px 0px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    text-align: left;
+    padding: 20px;
+    font-size: 10px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+
+.dropArt {
+    display: none;
+}
+
+.nav div:hover .dropArt {
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    width: 165px;
+    height: auto;
+    text-align: left;
+    font-size: 10px;
+    margin: 12px 0px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    padding: 7px
+}
+
+.dropArt ul .select {
+    list-style-type: none;
+    padding: 5px 0px;
+}
+
+.dropArt ul .select:hover {
+    text-decoration: none;
+    background-color: white;
+    color: #1D3527;
+    padding-left: 5px;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+
+.dropArt a {
+    text-decoration: none;
+    color: white;
+}
+
+.dropArt ul .a:active {
+    text-decoration: none;
+}
+
+
+.dropWeb {
+    display: none;
+}
+
+.nav div:hover .dropWeb {
+    display: block;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    margin: 12px 0px;
+}
+
+
+
+
+/* ruler */
+#ruler {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 45vw;
+    max-width: 650px;
+    min-width: 300px;
+    cursor: grab;
+}
+
+#ruler:active {
+    cursor: grabbing;
+}
+
+#ruler img {
+    width: 100%;
+    display: block;
+}
+
+/* 新增：緊貼在尺右上角的按鈕樣式 */
+#rotate-handle {
+    #rotate-handle {
+        position: absolute;
+        top: clamp(-25px, -1.5vw, -15px);
+        right: clamp(-25px, -1.5vw, -15px);
+        width: clamp(22px, 2vw, 28px);
+        height: clamp(22px, 2vw, 28px);
+        background-color: #1D3527;
+        border: 2px solid #808184;
+        color: white;
+        border-radius: 50%;
+
+        /* 💡 3. 文字水平垂直置中：利用 Flexbox 代替原本固定的 line-height，防止縮小時字體歪掉 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* 💡 4. 圖標字級改用 clamp：讓 ↻ 箭頭跟著按鈕一起變小 */
+        font-size: clamp(14px, 1.5vw, 20px);
+
+        cursor: alias;
+        user-select: none;
+        z-index: 9999;
+    }
+
+}
+
+#rotate-handle:hover {
+    background-color: white;
+    color: #1D3527;
+}
+
+
+/* 修改：右側內容顯示區（佔據螢幕右半邊 50%） */
+#content-display {
+    position: fixed;
+    top: 100px;
+    /* 從最頂端開始 */
+    right: 0;
+    /* 貼緊最右邊 */
+    width: 50%;
+    /* 剛好佔據螢幕一半寬度 */
+    height: 100vh;
+    /* 高度撐滿整個螢幕 */
+
+    /* 視覺風格：使用您網頁的綠色 #1D3527，並帶點透明度，可透出您的背景圖 */
+    background-color: rgba(29, 53, 39);
+    border-left: 2px solid #808184;
+    border-top: 2px solid #808184;
+    /* 只在左側加上灰色邊框，與左邊原生網頁分隔 */
+
+    padding: 40px;
+    /* 內部留白，讓圖文不貼邊 */
+    color: white;
+    font-family: "Lucida Console", "Courier New", monospace;
+
+    overflow-y: auto;
+    /* 如果作品內容太長，內部會自動出現滾動條 */
+    box-sizing: border-box;
+    z-index: 999;
+    /* 確保不會被主頁其他絕對定位的元素遮擋 */
+    display: none;
+    /* 初始預設隱藏，點擊連結後才顯示 */
+}
+
+/* ==========================================================================
+   📱 響應式安全鎖：縮小視窗或手機版時，按鈕改為「上下堆疊」並固定在「最左邊」
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    /* 1. 鎖定全域，防止手機畫面左右晃動 */
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* 2. 標題按鈕：維持原本最左上角的精緻定位 */
+    .kaman {
+        position: fixed !important;
+        top: 43.5px !important;
+        left: 43.5px !important;
+        width: 153px !important;
+        height: 32px !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 3. 跑馬燈區塊：維持原位不變 */
+    .intro {
+        position: fixed !important;
+        top: 43.5px !important;
+        left: 195px !important;
+        width: 288px !important;
+        height: 28px !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 4. ✨ 核心修改：導覽列改為「垂直上下堆疊」，並死死固定在網頁最左邊 */
+    .nav {
+        position: fixed !important;
+        width: 90px !important;
+        /* 💡 寬度縮小到與按鈕同寬 (90px)，不再是 450px */
+        top: 93px !important;
+        /* 緊貼在標題按鈕的下方開始排隊 */
+        left: 75px !important;
+        /* 💡 稍微往右調整，讓圓形按鈕在視覺上完美對齊上方的標題 Kaman Lam */
+        display: flex !important;
+        flex-direction: column !important;
+        /* ✨ 核心：由橫排轉為「上下垂直堆疊」 */
+        align-items: center !important;
+        /* 讓按鈕在垂直線上水平居中 */
+        justify-content: flex-start !important;
+        gap: 15px !important;
+        /* 💡 設定按鈕與按鈕之間的上下黃金間距 */
+        height: auto !important;
+    }
+
+    /* 5. 鋼鐵防禦：鎖定按鈕包裝尺寸，防止被手機瀏覽器壓縮 */
+    .nav div {
+        width: 90px !important;
+        /* 寬度從 155px 修正為 90px，配合垂直排版 */
+        height: auto !important;
+        /* 高度改為自動，防止下方的文字被截斷 */
+        flex-shrink: 0 !important;
+        margin-bottom: 5px !important;
+    }
+
+    .dropbtn {
+        width: 90px !important;
+        height: 90px !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 6. 鎖定圓形圖標，禁止變形 */
+    .nav img {
+        width: 55px !important;
+        height: 55px !important;
+    }
+
+    /* 7. ✨ 下拉選單手機優化：因為按鈕現在在最左邊，選單必須「向右側展開」 */
+    .nav div:hover .dropAbout {
+        position: absolute !important;
+        left: 105px !important;
+        /* 💡 核心：往右推開 105px，完美呈現在按鈕的右手邊 */
+        top: 0 !important;
+        /* 與當前指到的按鈕頂部對齊 */
+        width: 198px !important;
+        margin: 0 !important;
+    }
+
+    .nav div:hover .dropArt {
+        position: absolute !important;
+        left: 105px !important;
+        /* 💡 核心：往右推開 105px，完美呈現在按鈕的右手邊 */
+        top: 0 !important;
+        /* 與當前指到的按鈕頂部對齊 */
+        width: 165px !important;
+        max-height: 50vh !important;
+        /* 限制手機版展開的高度 */
+        overflow-y: auto !important;
+        /* 超出時允許在選單內滑動 */
+        margin: 0 !important;
+    }
+}
+
+
+
+footer {
+    color: white;
+    font-size: 9px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+
+}

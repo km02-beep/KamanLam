@@ -1,26 +1,247 @@
 <!DOCTYPE html>
-    <link rel="stylesheet" href="/css/siteStyle.css">
+<html lang="zh-Hant">
 
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
 
-        <section>
-            <img src="/works/candy1.jpg" alt="poster" class="center-image"> 
-            <div class="candy-text">
-            <p><b>Popping candy, 2020 | 爆炸糖, 2020</b><br>
-               Acrylic on canvas, match, glitter, pencil | 布面丙烯、火柴、閃粉、鉛筆<br>
-               46 x 61 cm | 46 x 61 厘米 <br><br>
-               Only you know what it feels like
-            </p></div>
-        </section>
-    </body>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+    }
 
-         <button class="back-btn" style="display: block; margin: auto;">
-            <a href="/index.html"><img src="/images/nav_btn.png"><p>Back</p></a>
-        </button>
+    body {
+        background-color: rgb(93, 36, 0);
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        /* 💡 鎖定螢幕不滾動，拖曳時才不會導致整個網頁亂飄 */
+        position: relative;
+    }
 
-    
+    /* 💻 1. 電腦版與全裝置通用文字設定 */
+    .slider-caption {
+        position: absolute;
+        top: 0.5vw;
+        left: 10vw;
+        width: 35%;
+        /* 只佔左邊 35% 寬度 */
+        text-align: left;
+
+        /* 💡 優化核心 1：調整 clamp，讓它在手機上最低鎖定在 11px，最大到 14px，平滑過渡 */
+        font-size: clamp(7px, 1.1vw, 10.5px);
+
+        color: rgb(255, 255, 255);
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+        z-index: 10;
+        user-select: none;
+        touch-action: none;
+        pointer-events: none;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    .slider-caption p b {
+        /* 💡 優化核心 2：標題同步改用 clamp 控管，最低 13px，最大 16px */
+        font-size: clamp(10px, 1.4vw, 12px);
+        display: block;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-underline-offset: 0.3vw;
+        margin-bottom: -0.5vw;
+    }
+
+    /* 💻 2. 電腦版圖片設定 */
+    .image-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        width: 60%;
+        max-width: 900px;
+        cursor: grab;
+        z-index: 5;
+        user-select: none;
+        touch-action: none;
+    }
+
+    .image-box:active {
+        cursor: grabbing;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        pointer-events: none;
+        border: 6px solid rgb(255, 85, 0);
+    }
+
+    /* 📱 3. 手機版 RWD 微調 */
+    @media (max-width: 768px) {
+        .slider-caption {
+            width: 85%;
+            /* 手機版放寬文字區塊，給文字更多橫向空間防止太快折行 */
+            top: 20px;
+            left: 20px;
+        }
+
+        .image-box {
+            width: 55%;
+            top: 150px;
+            /* 手機版初始位置稍微往下移，錯開左上角文字 */
+            right: 10px;
+        }
+    }
+
+    /* （footer 樣式維持原樣，此處省略） */
+
+
+    /* 底部版權宣告 */
+    footer {
+        position: absolute;
+        bottom: 0.1%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        text-align: center;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .footer-text {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 12px;
+        white-space: nowrap;
+    }
+</style>
+
+<body>
+
+    <!-- 💡 保留原本的 ID 結構方便後續可能擴充，但文字已失去拖曳權限 -->
+    <div class="slider-caption" id="drag-text">
+        <p><b>Popping candy | 爆炸糖, 2020 </b><br>
+            Acrylic on canvas, match, glitter, pencil <br>布面丙烯、火柴、閃粉、鉛筆<br>
+            46 x 61 cm<br><br>
+            Only you know what it feels like
+        </p>
+    </div>
+
+    <!-- 可任意拖曳的圖片 -->
+    <div class="image-box" id="drag-element">
+        <img src="/works/candy1.jpg" alt="poster">
+    </div>
+
+    <!-- 將 width 改為 25vw，代表圖片寬度永遠固定為螢幕寬度的 25% -->
+    <div style="position: absolute; top: 0; right: 0; width: 25vw; height: auto;">
+        <img src="/works/candy2.jpg" alt="poster" style="width: 100%; height: auto; display: block;">
+    </div>
+
+
+    <!-- 返回按鈕 -->
+    <button class="back-btn">
+        <a href="/index.html"><img src="/images/nav_btn.png" alt="nav"></a>
+    </button>
+
+
+
+    <script>
+        // 通用拖曳功能封裝函數（維持最穩定的防出界算法）
+        function makeElementDraggable(element, initialRight = null) {
+            let isDragging = false;
+            let startX, startY;
+            let currentX = null, currentY = null;
+
+            function initPosition() {
+                if (currentX === null || currentY === null) {
+                    const rect = element.getBoundingClientRect();
+                    currentX = rect.left;
+                    currentY = rect.top;
+
+                    element.style.position = 'absolute';
+                    if (initialRight) {
+                        element.style.right = 'auto';
+                    }
+                    element.style.left = `${currentX}px`;
+                    element.style.top = `${currentY}px`;
+                }
+            }
+
+            /* --- 電腦滑鼠事件 --- */
+            element.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                initPosition();
+                startX = e.clientX - currentX;
+                startY = e.clientY - currentY;
+                element.style.zIndex = 15;
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+
+                let x = e.clientX - startX;
+                let y = e.clientY - startY;
+
+                const rect = element.getBoundingClientRect();
+                x = Math.max(-rect.width + 50, Math.min(window.innerWidth - 50, x));
+                y = Math.max(0, Math.min(window.innerHeight - 50, y));
+
+                currentX = x;
+                currentY = y;
+                element.style.left = `${currentX}px`;
+                element.style.top = `${currentY}px`;
+            });
+
+            /* --- 手機觸控事件 --- */
+            element.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                initPosition();
+                startX = e.touches[0].clientX - currentX;
+                startY = e.touches[0].clientY - currentY;
+                element.style.zIndex = 15;
+            }, { passive: false });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                if (e.cancelable) e.preventDefault();
+
+                let x = e.touches[0].clientX - startX;
+                let y = e.touches[0].clientY - startY;
+
+                const rect = element.getBoundingClientRect();
+                x = Math.max(-rect.width + 50, Math.min(window.innerWidth - 50, x));
+                y = Math.max(0, Math.min(window.innerHeight - 50, y));
+
+                currentX = x;
+                currentY = y;
+                element.style.left = `${currentX}px`;
+                element.style.top = `${currentY}px`;
+            }, { passive: false });
+
+            /* --- 結束拖曳 --- */
+            const stopDrag = () => {
+                if (isDragging) {
+                    isDragging = false;
+                    element.style.zIndex = 5;
+                }
+            };
+            document.addEventListener('mouseup', stopDrag);
+            document.addEventListener('touchend', stopDrag);
+        }
+
+        // ✨ 修正：只啟動圖片的拖曳功能，徹底移除了對 textEl 的綁定！
+        const imgEl = document.getElementById('drag-element');
+        makeElementDraggable(imgEl, true); 
+    </script>
+
     <footer>
-     <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
+        <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
     </footer>
+</body>
 
 </html>
