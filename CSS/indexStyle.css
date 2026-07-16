@@ -3,7 +3,6 @@
     margin: 0;
 }
 
-
 body {
     background-image: url("/images/BG2.jpg"), url("/images/BGrepeat.jpg");
     background-repeat: no-repeat, repeat-x;
@@ -143,7 +142,7 @@ body {
 
 .dropAbout img {
     width: 90%;
-    height: auto;
+    height: 90%;
     align-content: center;
     padding-bottom: 20px;
 }
@@ -151,16 +150,84 @@ body {
 .nav div:hover .dropAbout {
     display: block;
     position: absolute;
-    width: 198px;
+    width: 267px;
     height: auto;
     margin: 12px 0px;
     background-color: #1D3527;
     border: 2px solid #808184;
     text-align: left;
-    padding: 20px;
+    padding: 0px;
     font-size: 10px;
     font-family: "Lucida Console", "Courier New", monospace;
 }
+
+@media (max-width: 768px) {
+
+    /* 1. ✨ 核心修正：利用 body 提高權重，並徹底清除電腦版殘留的 margin 外邊距 */
+    body .nav div:hover .dropAbout {
+        position: absolute;
+        left: 100px;
+        right: 15px;
+        /* 💡 強制右側邊緣與手機螢幕保持 15px 的安全距離，絕對不出界！ */
+
+        width: auto;
+        /* 💡 關鍵：寬度改為 auto，讓瀏覽器自動撐滿 left 到 right 的所有空間 */
+        max-width: none;
+        /* 解除電腦版 267px 的寬度卡死限制 */
+
+        margin: 0;
+        /* ✨ 超關鍵修正：強制清除電腦版的 margin，否則雙向定位會直接失效 */
+        top: 0;
+        /* 與當前按鈕頂部對齊 */
+        padding: 0px;
+        /* 清除內邊距，讓相片可以貼齊左右邊緣 */
+        overflow: hidden;
+    }
+
+    /* 2. ✨ 核心修正：提高權重，強制讓圖片寬度百分之百撐滿這個加大的框框 */
+    body .nav .dropAbout img {
+        width: 100%;
+        /* 圖片會完美跟著自動變大的外框同步放大 */
+        height: 100%;
+        max-width: none;
+        padding-bottom: 15px;
+        display: block;
+        /* 拔除圖片底部的神祕 3px 空隙 */
+    }
+
+    /* 3. ✨ 核心修正：提高權重，文字單獨補上內邊距，確保文字不會死死貼著左右邊框 */
+    body .nav .dropAbout p {
+        padding: 0 15px 15px 15px;
+        color: white;
+        font-size: 11px;
+        /* 手機版內文字級 */
+    }
+}
+
+
+
+
+/* 2. 提高權重，讓圖片寬度百分之百撐滿框框 */
+.nav .dropAbout img {
+    width: 100%;
+    /* ✨ 核心修改：寬度由 90% 放大到 100% */
+    height: auto;
+    /* 保持等比例縮放 */
+    max-width: none;
+    /* 解除可能存在的最大寬度限制 */
+    padding-bottom: 15px;
+    /* 圖片下方稍微留白，避免直接黏到文字 */
+    display: block;
+    /* 拔除圖片底部的神祕 3px 空隙 */
+}
+
+/* 3. 💡 新增美化：文字單獨補上內邊距，才不會死死貼著左右邊框 */
+.nav .dropAbout p {
+    padding: 0 15px 15px 15px;
+    /* 左右與下方留出 15px 舒適閱讀空間 */
+    color: white;
+}
+
 
 
 .dropArt {
@@ -238,7 +305,6 @@ body {
     display: block;
 }
 
-/* 新增：緊貼在尺右上角的按鈕樣式 */
 #rotate-handle {
     position: absolute;
     top: -25px;
@@ -262,42 +328,15 @@ body {
     color: #1D3527;
 }
 
+@media (max-width: 768px) {
 
-/* 修改：右側內容顯示區（佔據螢幕右半邊 50%） */
-#content-display {
-    position: fixed;
-    top: 100px;
-    /* 從最頂端開始 */
-    right: 0;
-    /* 貼緊最右邊 */
-    width: 50%;
-    /* 剛好佔據螢幕一半寬度 */
-    height: 100vh;
-    /* 高度撐滿整個螢幕 */
+    #ruler {
+        display: none;
+    }
 
-    /* 視覺風格：使用您網頁的綠色 #1D3527，並帶點透明度，可透出您的背景圖 */
-    background-color: rgba(29, 53, 39);
-    border-left: 2px solid #808184;
-    border-top: 2px solid #808184;
-    /* 只在左側加上灰色邊框，與左邊原生網頁分隔 */
-
-    padding: 40px;
-    /* 內部留白，讓圖文不貼邊 */
-    color: white;
-    font-family: "Lucida Console", "Courier New", monospace;
-
-    overflow-y: auto;
-    /* 如果作品內容太長，內部會自動出現滾動條 */
-    box-sizing: border-box;
-    z-index: 999;
-    /* 確保不會被主頁其他絕對定位的元素遮擋 */
-    display: none;
-    /* 初始預設隱藏，點擊連結後才顯示 */
 }
 
-/* ==========================================================================
-   📱 響應式安全鎖：縮小視窗或手機版時，按鈕改為「上下堆疊」並固定在「最左邊」
-   ========================================================================== */
+
 @media (max-width: 768px) {
 
     /* 1. 鎖定全域，防止手機畫面左右晃動 */
@@ -308,12 +347,12 @@ body {
 
     /* 2. 標題按鈕：維持原本最左上角的精緻定位 */
     .kaman {
-        position: fixed !important;
-        top: 43.5px !important;
-        left: 43.5px !important;
-        width: 153px !important;
-        height: 32px !important;
-        flex-shrink: 0 !important;
+        position: fixed;
+        top: 43.5px;
+        left: 43.5px;
+        width: 153px;
+        height: 32px;
+        flex-shrink: 0;
     }
 
     /* 3. 跑馬燈區塊：維持原位不變 */
@@ -357,9 +396,9 @@ body {
     }
 
     .dropbtn {
-        width: 90px !important;
-        height: 90px !important;
-        flex-shrink: 0 !important;
+        width: 90px;
+        height: 90px;
+        flex-shrink: 0;
     }
 
     /* 6. 鎖定圓形圖標，禁止變形 */
@@ -372,11 +411,10 @@ body {
     .nav div:hover .dropAbout {
         position: absolute;
         left: 105px;
-        /* 💡 核心：往右推開 105px，完美呈現在按鈕的右手邊 */
-        top: 0 !important;
+        top: 0;
         /* 與當前指到的按鈕頂部對齊 */
-        width: 198px !important;
-        margin: 0 !important;
+        width: 198px;
+        margin: 0;
     }
 
     .nav div:hover .dropArt {
@@ -393,7 +431,6 @@ body {
         margin: 0 !important;
     }
 }
-
 
 
 footer {
