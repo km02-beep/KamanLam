@@ -223,11 +223,11 @@ body {
 /* ruler */
 #ruler {
     position: absolute;
-    bottom: 10%;
-    right: 5%;
+    bottom: 8%;
+    right: 4%;
     width: 45vw;
     max-width: 650px;
-    min-width: 300px;
+    min-width: 500px;
     cursor: grab;
 }
 
@@ -242,30 +242,21 @@ body {
 
 /* 新增：緊貼在尺右上角的按鈕樣式 */
 #rotate-handle {
-    #rotate-handle {
-        position: absolute;
-        top: clamp(-25px, -1.5vw, -15px);
-        right: clamp(-25px, -1.5vw, -15px);
-        width: clamp(22px, 2vw, 28px);
-        height: clamp(22px, 2vw, 28px);
-        background-color: #1D3527;
-        border: 2px solid #808184;
-        color: white;
-        border-radius: 50%;
-
-        /* 💡 3. 文字水平垂直置中：利用 Flexbox 代替原本固定的 line-height，防止縮小時字體歪掉 */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        /* 💡 4. 圖標字級改用 clamp：讓 ↻ 箭頭跟著按鈕一起變小 */
-        font-size: clamp(14px, 1.5vw, 20px);
-
-        cursor: alias;
-        user-select: none;
-        z-index: 9999;
-    }
-
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    width: 28px;
+    height: 28px;
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 22px;
+    cursor: alias;
+    user-select: none;
+    z-index: 9999;
 }
 
 #rotate-handle:hover {
