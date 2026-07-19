@@ -204,9 +204,6 @@ body {
     }
 }
 
-
-
-
 /* 2. 提高權重，讓圖片寬度百分之百撐滿框框 */
 .nav .dropAbout img {
     width: 100%;
@@ -228,7 +225,7 @@ body {
     color: white;
 }
 
-
+/* ----------------------------------dropArt------------------------------------ */
 
 .dropArt {
     display: none;
@@ -245,15 +242,19 @@ body {
     margin: 12px 0px;
     background-color: #1D3527;
     border: 2px solid #808184;
-    padding: 7px
+    padding: 7px;
 }
 
-.dropArt ul .select {
+/* 💡 修正 1：移除選擇器中的 ul，直接對齊您 HTML 的 .dropArt .select */
+.dropArt .select {
     list-style-type: none;
     padding: 5px 0px;
+    position: relative;
+    /* 讓內部的預覽圖可以相對於這一行文字定位 */
 }
 
-.dropArt ul .select:hover {
+/* 💡 修正 2：移除選擇器中的 ul */
+.dropArt .select:hover {
     text-decoration: none;
     background-color: white;
     color: #1D3527;
@@ -267,22 +268,46 @@ body {
     color: white;
 }
 
-.dropArt ul .a:active {
+.dropArt .a:active {
     text-decoration: none;
 }
 
-
-.dropWeb {
+/* 💡 修正 3：移除選擇器中的 ul，設定預設隱藏的預覽圖 */
+.dropArt .select .preview-img {
     display: none;
+    /* 預設徹底隱藏不顯示 */
+    position: absolute;
+
+    /* 定位魔法：強制把預覽圖推到文字清單的「右手邊」 */
+    left: 175px;
+    /* 寬度 165px + 10px 舒適空隙，剛好貼在選單框的右側外牆 */
+    top: -10px;
+    /* 與當前指到的項目頂部微微對齊 */
+
+    width: 140px;
+    /* 設定預覽圖的寬度 */
+    height: auto;
+    /* 高度等比例縮放 */
+
+    /* 視覺美化 */
+    background-color: #1D3527;
+    border: 2px solid #808184;
+    padding: 3px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    /* 加入精緻的立體深色陰影 */
+    z-index: 10000;
+    /* 確保層級最高，絕對不被大直尺或其他元素遮擋 */
+    pointer-events: none;
+    /* 點擊穿透，防止滑鼠晃到預覽圖時產生畫面閃爍的 Bug */
 }
 
-.nav div:hover .dropWeb {
+/* 💡 修正 4：移除選擇器中的 ul，當滑鼠 hover 移到這一行文字時，讓預覽圖現形！ */
+.dropArt .select:hover .preview-img {
     display: block;
-    position: absolute;
-    width: 300px;
-    height: auto;
-    margin: 12px 0px;
+    /* 當 hover 時，將 display 切換為 block，完美現身 */
 }
+
+/*---------------------------------------------------------------------------------- */
 
 
 /* ruler */

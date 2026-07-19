@@ -130,6 +130,83 @@
            letter-spacing: 0.1vw;
        }
 
+
+       @media (max-width: 768px) {
+
+           /* 1. 鎖定全域防禦，防止手機版網頁左右產生不正常晃動 */
+           body {
+               width: 100vw;
+               overflow-x: hidden;
+           }
+
+           /* 2. ✨ 核心修正：保留 position: absolute，讓文字完美繼續懸浮疊在圖片左上角 */
+           body .slider-container p {
+               position: absolute;
+               top: 10px;
+               left: 10px;
+               width: 65%;
+               font-size: 9px;
+               text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+               text-align: left;
+               z-index: 20;
+               line-height: 1.4;
+           }
+
+           /* 標題波浪底線同步微調 */
+           body .slider-container p b {
+               font-size: 10px;
+               text-decoration-style: wavy;
+               text-underline-offset: 3px;
+               margin-bottom: -3px;
+           }
+
+           /* 3. 調整輪播圖容器：放寬手機版橫向空間 */
+           body .slider-container {
+               width: 90%;
+               /* 寬度由 85% 放大到 90%，放大手機展示區 */
+           }
+
+           /* 4. 強制左右切換按鈕在手機上永久現形，並縮小體積 */
+           body .slide-btn {
+               opacity: 1;
+               font-size: 14px;
+               width: 28px;
+               height: 28px;
+               background-color: rgba(0, 0, 0, 0.25);
+
+           }
+
+
+           body .slide-btn:active {
+               background-color: rgb(255, 255, 255);
+               color: #000000;
+           }
+
+           body .prev-btn {
+               left: 8px;
+           }
+
+           body .next-btn {
+               right: 8px;
+           }
+
+           body .slider-caption {
+               width: 90%;
+               margin: 15px auto 0;
+               font-size: 10px;
+               line-height: 1.5;
+           }
+
+           body .slider-caption-black {
+               width: 90%;
+               margin: 15px auto 0;
+               font-size: 12px;
+               line-height: 1.5;
+           }
+       }
+
+
+
        /* ===========================【 youtube 】=========================== */
 
        .video-section {
@@ -157,6 +234,44 @@
            width: 100%;
            height: 100%;
        }
+
+       /* ==========================================================================
+   📱 rolePlaying 頁面專屬手機版安全鎖（YouTube 影片完美自適應優化）
+   ========================================================================== */
+       @media (max-width: 768px) {
+
+           /* 1. 調整影片外層區塊：縮小手機版的上下留白間距 */
+           body .video-section {
+               width: 100%;
+               padding-top: 30px;
+               /* 💡 縮小手機版頂部間距，排版更緊湊 */
+               padding-bottom: 80px;
+               /* 💡 底部預留 80px 空間，防止影片與下方置中的返回按鈕撞在一起 */
+           }
+
+           /* 2. ✨ 核心修改：將影片寬度放大，並強制轉換為標準 16:9 比例 */
+           body .youtube-container {
+               width: 92%;
+               /* 💡 核心修改：由 70% 放大到 92%，在手機小螢幕上將影片放到最大 */
+
+               /* 💡 核心修改：由原本的 42.8% 修正為 56.25%（這是網頁設計中 16:9 影片的黃金比例公式） */
+               padding-bottom: 56.25%;
+
+               margin: 0 auto;
+               /* 保持水平居中 */
+               border: 1px solid #808184;
+           }
+
+           /* 3. 確保影片內嵌標籤百分之百完美填滿加大的外框 */
+           body .youtube-container iframe {
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+           }
+       }
+
 
        /* =================【 ✨ Horizontal Scroll Gallery Section 】================= */
        .gallery-caption {
@@ -191,7 +306,6 @@
        }
 
        .gallery-grid {
-           /* ✨ CHANGE: Convert Grid into Flexbox for single-row scrolling */
            display: flex;
            flex-wrap: nowrap;
            width: 85%;
@@ -200,9 +314,6 @@
            overflow-x: auto;
            overflow-y: hidden;
            padding-bottom: 15px;
-           /* Tiny padding at the bottom so the scrollbar doesn't clip the image borders */
-
-           /* Optional: Makes scrolling feel smooth and premium on touch devices */
            -webkit-overflow-scrolling: touch;
        }
 
@@ -236,13 +347,52 @@
            width: auto;
            object-fit: contain;
            cursor: zoom-in;
-           /* Kept: Indicates they can still be clicked to expand full screen */
            transition: opacity 0.2s;
            display: block;
        }
 
        .gallery-item img:hover {
            opacity: 0.85;
+       }
+
+
+       @media (max-width: 768px) {
+
+           body {
+               width: 100vw;
+               overflow-x: hidden;
+           }
+
+           body .gallery-grid {
+               width: 90%;
+               gap: 15px;
+               padding-bottom: 10px;
+               /* 預留滾動條空間 */
+           }
+
+           body .gallery-item img {
+               height: 200px;
+               width: auto;
+           }
+
+           body .gallery-caption {
+               width: 90%;
+               margin: 15px auto 0;
+               font-size: 10px;
+               line-height: 1.4;
+           }
+
+
+           body .gallery-caption-black {
+               width: 90%;
+               margin: 15px auto 0;
+               font-size: 10px;
+               line-height: 1.4;
+           }
+
+           body .gallery-grid::-webkit-scrollbar {
+               height: 5px;
+           }
        }
 
        /* =================【 lightbox -- image zoom】================= */
@@ -421,6 +571,16 @@
        }
 
 
+       @media (max-width: 768px) {
+
+           body .back-btn {
+               display: none;
+           }
+
+       }
+
+
+
        /* =========================== end text ========================== */
        .end-caption {
            width: 85%;
@@ -445,6 +605,27 @@
            margin-bottom: -1px;
            /* 清除全域 p b 帶來的外邊距 */
        }
+
+       @media (max-width: 768px) {
+           body .end-caption {
+               width: 90%;
+               margin: 15px auto 0;
+               padding-top: 25px;
+               font-size: 9px;
+               text-align: center;
+               line-height: 1.6;
+           }
+
+           body .end-caption b {
+               font-size: 9px;
+               display: block;
+               text-decoration: underline;
+               text-decoration-style: wavy;
+               text-underline-offset: 3px;
+               margin-bottom: -3px;
+           }
+       }
+
 
        /* =========================== footer ========================== */
        footer {
