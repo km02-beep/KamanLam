@@ -1,31 +1,160 @@
 <!DOCTYPE html>
-    <link rel="stylesheet" href="/css/siteStyle-W.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>When people moving </title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgb(245, 245, 245);
+    }
+
+    .slider-caption {
+        position: fixed;
+        /* ✨ 修改：改為固定定位，與圖片脫離干擾 */
+        top: 670px;
+        left: 10%;
+        width: 85%;
+        text-align: left;
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(0, 0, 0);
+        z-index: 20;
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+    }
+
+    .gallery-grid::-webkit-scrollbar-track {
+        background: rgba(165, 164, 164, 0.5);
+        /* Faint background color */
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb {
+        background: #040404;
+        border-radius: 3px;
+    }
+
+    /* ✨ 控制外層容器：只允許左右滑動，其他方向死鎖 */
+    .scroll-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: block;
+        white-space: nowrap;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ✨ 控制內部圖片：維持您的設定，並防止被 Flex 或瀏覽器硬塞擠壓 */
+    .scroll-container img {
+        height: 650px;
+        /* 承襲您原本設定的高度 */
+        width: auto;
+        /* 💡 核心：寬度依比例自動延伸，不准被強行壓縮 */
+        max-width: none;
+        /* 💡 核心：解除任何可能限制圖片寬度的上限，允許它往右無限延伸 */
+        display: inline-block;
+        /* 確保顯示屬性正確 */
+    }
+
+    .scroll-container::-webkit-scrollbar {
+        height: 8px;
+        /* 💡 設定一條 8 像素高、粗細適中的精緻滾動條 */
+        display: block;
+        /* 💡 強制在手機版上也必須渲染出來 */
+    }
+
+    /* 2. 定義滾動條底部的「軌道背景」 */
+    .scroll-container::-webkit-scrollbar-track {
+        background: rgba(221, 255, 0, 0.235);
+        /* 使用帶有 10% 透明度的白色，能隱約透出您的網格背景 */
+        border-radius: 4px;
+        /* 軌道圓角化 */
+    }
+
+    /* 3. 定義可以被滑鼠抓取、或隨手指滑動的「滾動條滑塊（Thumb）」 */
+    .scroll-container::-webkit-scrollbar-thumb {
+        background: #020202;
+        /* 💡 使用您網頁核心的灰色（#808184），維持完美的視覺整體感 */
+        border-radius: 4px;
+        /* 滑塊圓角化 */
+    }
+
+    /* 4. 當滑鼠移到滑塊上、或是手指按住它時，讓它稍微反白變亮，提升互動感 */
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+        background: rgb(111, 219, 255);
+        /* 變為純白色，提示使用者這條是可以拉動的 */
+    }
+
+    .back-btn-still {
+        position: fixed;
+        top: 675px;
+        left: 2.5%;
+        /* 💡 核心修改：死死守在最左側 45px 處 */
+        background-color: transparent;
+        border: 0px;
+        z-index: 99999;
+        animation: ballBounce 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        transform-origin: bottom center;
+    }
+
+    /* 確保 a 標籤完全包裹並決定按鈕的大小 */
+    .back-btn-still a {
+        display: block;
+        width: clamp(35px, 5vw, 60px);
+        height: clamp(35px, 5vw, 60px);
+    }
+
+    .back-btn-still img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: transform 0.2s;
+    }
+
+    .back-btn-still img:hover {
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+</style>
+
 <body>
 
-        <section>
-        <div class="scroll-container">
-            <img src="/works/movingpeople.jpg" alt="people" width="fit-content" height="650">
-        </div>
-        </section>
+    <div class="scroll-container">
+        <img src="/works/movingpeople.jpg" alt="people" width="fit-content" height="650">
+    </div>
 
-        <section>
-            <p style="padding: 30px 90px"><b>When people moving, 2021 | 移動中的人，2021</b><br>
-               Ink on handscroll, color pencil, laser sticker | 水墨手卷、木顏色、雷射貼紙<br>
-               16 x 260 cm | 16 x 260 厘米<br><br>
+    <div class="slider-caption" id="drag-text">
+        <p><b>When people moving | 移動中的人, 2021 </b><br>
+            Ink on handscroll, color pencil, laser sticker<br>
+            16 x 260 cm<br>
+            水墨手卷、木顏色、雷射貼紙<br>
+            16 x 260 厘米<br>
+        </p>
+    </div>
 
-               人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人人<br>
-               
-            
-        </section>
 
-        <button class="back-btn" style="padding: 50px 90px">
-            <a href="/index.html"><img src="/images/nav_btnB.png"><p>Back</p></a>
-        </button>
-     
+    <button class="back-btn-still">
+        <a href="/index.html"><img src="/images/nav_btnB.png">
+        </a>
+    </button>
+
+
 </body>
-
- <footer>
-     <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
+<footer>
+    <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
 </footer>
+
 
 </html>

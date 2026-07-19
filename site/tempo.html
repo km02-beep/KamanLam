@@ -1,45 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="/css/siteStyle-W.css">
 
-    <body>
-        <div class="cover">
-            <img src="/works/clean.jpg" alt="tempo" width="70%" style="display: block; margin: auto;">
-        </div>
+<head>
+    <title>I will clean it for you</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
 
-        <section>
-            <p style="padding: 60px 100px;">
-                <b>I will clean it for you, 2018 | 我幫你擦乾淨, 2018</b><br> 
-                Pen on tissue paper | 墨水筆紙巾本 <br> 
-                21x 21 cm x 7 ply | 21x 21 厘米 x 7 層<br>
-                <br>
-                A record of making myself dirty in order to clean something<br>
-                弄髒自己的記錄
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgb(245, 245, 245);
+    }
+
+    .slider-caption {
+        width: 85%;
+        /* 寬度與上面的 .slider-container 保持一模一樣 */
+        margin: 20px auto 0;
+        padding-left: 0px;
+        /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
+        text-align: left;
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(0, 0, 0);
+        z-index: 20;
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+    }
+
+    .gallery-grid::-webkit-scrollbar-track {
+        background: rgba(165, 164, 164, 0.5);
+        /* Faint background color */
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb {
+        background: #040404;
+        border-radius: 3px;
+    }
+</style>
+
+<body>
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>I will clean it for you | 我幫你擦乾淨, 2018 </b><br>
+                Pen on tissue paper, 21x 21 cm x 7 ply<br>
+                墨水筆紙巾本, 21x 21 厘米 x 7 層<br>
             </p>
-        </section>
+            <button class="slide-btn prev-btn">❮</button>
+            <button class="slide-btn next-btn">❯</button>
 
-     <section>
-        <div class="scroll-book">
-            <img src="/works/c1.jpg" alt="clean2">
-            <img src="/works/c2.jpg" alt="clean3">
-            <img src="/works/c3.jpg" alt="clean4">
-            <img src="/works/c4.jpg" alt="clean5">
-            <img src="/works/c5.jpg" alt="clean6">
-            <img src="/works/c6.jpg" alt="clean7">
-            <img src="/works/c0.jpg" alt="clean1">
+            <div class="slider-wrapper">
+                <img src="/works/c7.jpg" alt="slide1">
+                <img src="/works/c8.jpg" alt="slide1">
+            </div>
         </div>
-    </section>
+        <div class="slider-caption">
+            A record of making myself dirty in order to clean something<br>
+            一個弄髒自己的記錄
+        </div>
+    </div>
 
+    <div class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="/works/c1.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/c2.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/c3.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/c4.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/c5.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/c6.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works/c0.jpg" alt="Exhibition View Asset Index"></div>
+        </div>
+    </div>
+
+    <div id="image-lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-btn lightbox-prev">❮</button>
+        <button class="lightbox-btn lightbox-next">❯</button>
+        <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+    </div>
 
     <button class="back-btn">
-        <a href="/index.html"><img src="/images/nav_btnB.png"><p>Back</p></a>
+        <a href="/index.html"><img src="/images/nav_btnB.png">
+        </a>
     </button>
 
+    <footer>
+        <p class="footer-text-black"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+    </footer>
 
-    </body>
+    <script src="/script.js"></script>
 
- <footer>
-     <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
-</footer>
+</body>
 
 </html>

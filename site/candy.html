@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Popping candy</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <link rel="stylesheet" href="/css/newStyle.css">
 </head>
 
@@ -121,17 +123,16 @@
 </style>
 
 <body>
-
-    <!-- 💡 保留原本的 ID 結構方便後續可能擴充，但文字已失去拖曳權限 -->
     <div class="slider-caption" id="drag-text">
         <p><b>Popping candy | 爆炸糖, 2020 </b><br>
-            Acrylic on canvas, match, glitter, pencil <br>布面丙烯、火柴、閃粉、鉛筆<br>
-            46 x 61 cm<br><br>
+            Acrylic on canvas, match, glitter, pencil <br>
+            46 x 61 cm<br>
+            布面丙烯、火柴、閃粉、鉛筆<br>
+            46 x 61 厘米<br><br>
             Only you know what it feels like
         </p>
     </div>
 
-    <!-- 可任意拖曳的圖片 -->
     <div class="image-box" id="drag-element">
         <img src="/works/candy1.jpg" alt="poster">
     </div>
@@ -141,13 +142,9 @@
         <img src="/works/candy2.jpg" alt="poster" style="width: 100%; height: auto; display: block;">
     </div>
 
-
-    <!-- 返回按鈕 -->
     <button class="back-btn">
         <a href="/index.html"><img src="/images/nav_btn.png" alt="nav"></a>
     </button>
-
-
 
     <script>
         // 通用拖曳功能封裝函數（維持最穩定的防出界算法）

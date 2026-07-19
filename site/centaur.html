@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="/css/siteStyle.css">
 
-    <body>
-        <div class="cover">
-            <img src="/works/centaur1.jpg" alt="centaur" width="100%">
-        </div>
+<head>
+    <title>Centaur</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
 
-        <section>
-            <p style="padding: 60px 20px;"><b>Centaur, 2017 | 人馬, 2017</b><br> 
-                Plaster, news papers, chicken wire net, wire | 石膏粉、報紙、鐵絲網、鐵線 <br> 
-                155 x 98 x 54 cm | 厘米<br>
-                <br>
-                When one side move forward, the other side need to move backward.<br>
-                When both attempts to go forward, it stuck.<br>
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgb(110, 95, 63);
+    }
+</style>
+
+<body>
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>Centaur | 人馬, 2017 </b><br>
+                Plaster, news papers, chicken wire net, wire<br>
+                155 x 98 x 54 cm<br>
+                石膏粉、報紙、鐵絲網、鐵線 <br>
+                155 x 98 x 54 厘米<br>
             </p>
-        </section>
+            <button class="slide-btn prev-btn">❮</button>
+            <button class="slide-btn next-btn">❯</button>
 
-        <div>
-            <img src="/works/centaur3.jpg" alt="centaur" width="55%" style="display: block; margin: auto;">
-            <img src="/works/centaur2.jpg" alt="centaur" width="55%" style="display: block; margin: auto; padding: 30px 0px 100px 0px">
+            <div class="slider-wrapper">
+                <img src="/works/centaur1.jpg" alt="slide1">
+                <img src="/works/centaur2.jpg" alt="slide2">
+
+            </div>
         </div>
-    
-        <button class="back-btn">
-            <a href="/index.html"><img src="/images/nav_btn.png"><p>Back</p></a>
-        </button>
 
-    </body>
+        <div class="slider-caption">
+            When one side move forward, the other side need to move backward<br>
+            When both side attempts to go forward, it stuck
+        </div>
+    </div>
 
- <footer>
-     <p>Copyright © 2025 Museum Trap | All Rights Reserved</p>
-</footer>
+
+    <div>
+        <img src="/works/centaur3.jpg" alt="centaur" width="55%" style="display: block; margin: auto; padding:7%;">
+    </div>
+
+    <button class="back-btn">
+        <a href="/index.html"><img src="/images/nav_btn.png">
+
+        </a>
+    </button>
+
+    <footer>
+        <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
 
 </html>
