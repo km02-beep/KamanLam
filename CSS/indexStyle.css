@@ -83,7 +83,6 @@ body {
 }
 
 
-
 .nav {
     display: flex;
     position: fixed;
@@ -161,71 +160,23 @@ body {
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
-@media (max-width: 768px) {
 
-    /* 1. ✨ 核心修正：利用 body 提高權重，並徹底清除電腦版殘留的 margin 外邊距 */
-    body .nav div:hover .dropAbout {
-        position: absolute;
-        left: 100px;
-        right: 15px;
-        /* 💡 強制右側邊緣與手機螢幕保持 15px 的安全距離，絕對不出界！ */
 
-        width: auto;
-        /* 💡 關鍵：寬度改為 auto，讓瀏覽器自動撐滿 left 到 right 的所有空間 */
-        max-width: none;
-        /* 解除電腦版 267px 的寬度卡死限制 */
-
-        margin: 0;
-        /* ✨ 超關鍵修正：強制清除電腦版的 margin，否則雙向定位會直接失效 */
-        top: 0;
-        /* 與當前按鈕頂部對齊 */
-        padding: 0px;
-        /* 清除內邊距，讓相片可以貼齊左右邊緣 */
-        overflow: hidden;
-    }
-
-    /* 2. ✨ 核心修正：提高權重，強制讓圖片寬度百分之百撐滿這個加大的框框 */
-    body .nav .dropAbout img {
-        width: 100%;
-        /* 圖片會完美跟著自動變大的外框同步放大 */
-        height: 100%;
-        max-width: none;
-        padding-bottom: 15px;
-        display: block;
-        /* 拔除圖片底部的神祕 3px 空隙 */
-    }
-
-    /* 3. ✨ 核心修正：提高權重，文字單獨補上內邊距，確保文字不會死死貼著左右邊框 */
-    body .nav .dropAbout p {
-        padding: 0 15px 15px 15px;
-        color: white;
-        font-size: 11px;
-        /* 手機版內文字級 */
-    }
-}
-
-/* 2. 提高權重，讓圖片寬度百分之百撐滿框框 */
 .nav .dropAbout img {
     width: 100%;
-    /* ✨ 核心修改：寬度由 90% 放大到 100% */
     height: auto;
-    /* 保持等比例縮放 */
     max-width: none;
-    /* 解除可能存在的最大寬度限制 */
     padding-bottom: 15px;
-    /* 圖片下方稍微留白，避免直接黏到文字 */
     display: block;
-    /* 拔除圖片底部的神祕 3px 空隙 */
 }
 
 /* 3. 💡 新增美化：文字單獨補上內邊距，才不會死死貼著左右邊框 */
 .nav .dropAbout p {
     padding: 0 15px 15px 15px;
-    /* 左右與下方留出 15px 舒適閱讀空間 */
     color: white;
 }
 
-/* ----------------------------------dropArt------------------------------------ */
+/* dropArt */
 
 .dropArt {
     display: none;
@@ -272,15 +223,13 @@ body {
     text-decoration: none;
 }
 
-/* 💡 修正 3：移除選擇器中的 ul，設定預設隱藏的預覽圖 */
+
 .dropArt .select .preview-img {
     display: none;
     position: absolute;
     left: 170px;
     top: -10px;
-
     width: 300px;
-    /* 設定預覽圖的寬度 */
     height: auto;
     border: 2px solid #808184;
     padding: 0px;
@@ -293,8 +242,7 @@ body {
 
 }
 
-/*---------------------------------------------------------------------------------- */
-
+/* dropArt */
 
 /* ruler */
 #ruler {
@@ -340,23 +288,20 @@ body {
 }
 
 @media (max-width: 768px) {
-
     #ruler {
         display: none;
     }
-
 }
+
+/* ruler */
 
 
 @media (max-width: 768px) {
-
-    /* 1. 鎖定全域，防止手機畫面左右晃動 */
     body {
         width: 100vw;
         overflow-x: hidden;
     }
 
-    /* 2. 標題按鈕：維持原本最左上角的精緻定位 */
     .kaman {
         position: fixed;
         top: 43.5px;
@@ -366,44 +311,34 @@ body {
         flex-shrink: 0;
     }
 
-    /* 3. 跑馬燈區塊：維持原位不變 */
     .intro {
-        position: fixed !important;
-        top: 43.5px !important;
-        left: 195px !important;
-        width: 288px !important;
-        height: 28px !important;
-        flex-shrink: 0 !important;
+        position: fixed;
+        top: 43.5px;
+        left: 195px;
+        width: 288px;
+        height: 28px;
+        flex-shrink: 0;
     }
 
-    /* 4. ✨ 核心修改：導覽列改為「垂直上下堆疊」，並死死固定在網頁最左邊 */
     .nav {
-        position: fixed !important;
-        width: 90px !important;
-        /* 💡 寬度縮小到與按鈕同寬 (90px)，不再是 450px */
-        top: 93px !important;
-        /* 緊貼在標題按鈕的下方開始排隊 */
-        left: 75px !important;
-        /* 💡 稍微往右調整，讓圓形按鈕在視覺上完美對齊上方的標題 Kaman Lam */
-        display: flex !important;
-        flex-direction: column !important;
-        /* ✨ 核心：由橫排轉為「上下垂直堆疊」 */
-        align-items: center !important;
-        /* 讓按鈕在垂直線上水平居中 */
-        justify-content: flex-start !important;
-        gap: 15px !important;
-        /* 💡 設定按鈕與按鈕之間的上下黃金間距 */
-        height: auto !important;
+        position: fixed;
+        width: 90px;
+        top: 93px;
+        left: 75px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        height: auto;
     }
 
-    /* 5. 鋼鐵防禦：鎖定按鈕包裝尺寸，防止被手機瀏覽器壓縮 */
+
     .nav div {
-        width: 90px !important;
-        /* 寬度從 155px 修正為 90px，配合垂直排版 */
-        height: auto !important;
-        /* 高度改為自動，防止下方的文字被截斷 */
-        flex-shrink: 0 !important;
-        margin-bottom: 5px !important;
+        width: 160px;
+        height: auto;
+        flex-shrink: 0;
+        margin-bottom: 5px;
     }
 
     .dropbtn {
@@ -412,34 +347,29 @@ body {
         flex-shrink: 0;
     }
 
-    /* 6. 鎖定圓形圖標，禁止變形 */
     .nav img {
         width: 55px;
         height: 55px;
     }
 
-    /* 7. ✨ 下拉選單手機優化：因為按鈕現在在最左邊，選單必須「向右側展開」 */
     .nav div:hover .dropAbout {
         position: absolute;
-        left: 105px;
-        top: 0;
-        /* 與當前指到的按鈕頂部對齊 */
-        width: 198px;
+        left: 120px;
+        top: -19px;
+        width: 177px;
+        max-height: auto;
+        overflow-y: auto !;
         margin: 0;
     }
 
     .nav div:hover .dropArt {
-        position: absolute !important;
-        left: 105px !important;
-        /* 💡 核心：往右推開 105px，完美呈現在按鈕的右手邊 */
-        top: 0 !important;
-        /* 與當前指到的按鈕頂部對齊 */
-        width: 165px !important;
-        max-height: 50vh !important;
-        /* 限制手機版展開的高度 */
-        overflow-y: auto !important;
-        /* 超出時允許在選單內滑動 */
-        margin: 0 !important;
+        position: absolute;
+        left: 120px;
+        top: -19px;
+        width: 164px;
+        max-height: auto;
+        overflow-y: auto !;
+        margin: 0;
     }
 }
 

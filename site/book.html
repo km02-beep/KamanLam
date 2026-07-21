@@ -40,43 +40,6 @@
     .gallery-caption a {
         color: #93c6ff;
     }
-
-    /* 💻 全裝置通用：左右並列、整體置中容器 */
-    .image-gallery-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        width: 85%;
-        margin: 40px auto;
-        gap: 30px;
-    }
-
-    /* 圖片的外包裝：決定兩張圖平分寬度 */
-    .gallery-image-box {
-        flex: 1;
-        max-width: 650px;
-    }
-
-    /* 圖片本體：隨外框自動縮放 */
-    .gallery-image-box img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border: 1px solid #00a6ff;
-    }
-
-    /* 📱 手機版 RWD 自動優化（當螢幕太窄裝不下兩張並列時） */
-    @media (max-width: 768px) {
-        .image-gallery-container {
-            width: 90%;
-            /* 手機版放寬兩側，讓出更多空間給圖片 */
-            gap: 15px;
-            /* 縮小圖片之間的間距 */
-            margin: 20px auto;
-            /* 縮小上下外邊距 */
-        }
-    }
 </style>
 
 <body>

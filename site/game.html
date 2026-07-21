@@ -19,17 +19,50 @@
     }
 
     .slider-container p {
-        /* 🎯 核心修改：將本頁的內文改成高質感灰色 #808184（您可以自由更換為黑色 #000000） */
-        color: #000000 !important;
-        text-shadow: 0 0 0 #000000;
-
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(0, 0, 0);
+        text-align: left;
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        z-index: 20;
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+        text-shadow: none;
     }
 
     .slider-container p b {
-        /* 🎯 核心修改：將第一行粗體字的標題也改成高質感灰色 #808184 */
-        color: #000000 !important;
-        text-shadow: 0 0 0 #000000;
-        text-decoration-color: #000000 !important;
+        font-size: clamp(11px, 1vw, 12px);
+        display: block;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-underline-offset: 0.3vw;
+        /* 底線距離也等比例縮放 */
+        margin-bottom: -0.5vw;
+    }
+
+    @media (max-width: 768px) {
+        body .slider-container p {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            font-size: 9px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+            text-align: left;
+            z-index: 20;
+            line-height: 1.4;
+            text-shadow: none;
+        }
+
+        /* 標題波浪底線同步微調 */
+        body .slider-container p b {
+            font-size: 10px;
+            text-decoration-style: wavy;
+            text-underline-offset: 3px;
+            margin-bottom: -3px;
+        }
+
     }
 
     .book-view {
@@ -41,7 +74,6 @@
         padding-top: clamp(40px, 8vw, 100px);
         padding-bottom: clamp(40px, 8vw, 100px);
         box-sizing: border-box;
-        /* 防止 padding 撐爆寬度 */
     }
 
     .book-view img {
@@ -58,6 +90,28 @@
         height: 0;
         overflow: hidden;
         border: none;
+    }
+
+    .gallery-image-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #000000;
+    }
+
+    @media (max-width: 768px) {
+        .image-gallery-container {
+            width: 90%;
+            gap: 15px;
+            padding-top: 0%;
+            padding-bottom: 10%;
+        }
+
+        body .video-section {
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
     }
 </style>
 
@@ -85,8 +139,9 @@
         <div class="slider-caption-black" style="padding-bottom:5%">
             <b>Popo-post Art Group's Projects</b><br>
             Published in October, 2020 on <a href="https://popo-post-art-group.itch.io/" target="_blank">itch.io</a><br>
-            Google Chrome stop supporting Flash in December, 2020. The game file can be downloaded on the <a
-                href="https://archive.org/details/v2_20201119poGame" target="_blank">Internat Archive</a>
+            Google Chrome stop supporting Flash in December, 2020. <br>
+            The game file can be downloaded on the <a href="https://archive.org/details/v2_20201119poGame"
+                target="_blank">Internat Archive</a>
         </div>
     </div>
 
@@ -103,16 +158,15 @@
         </div>
     </div>
 
-    <div
-        style="display: flex; justify-content: center; align-items: center; width: 70%; height: 300px; gap: 1%; margin: 0 auto; padding-bottom: 8%">
-        <!-- flex: 1 讓兩張圖平分寬度；max-height 確保高度不超過外層容器 -->
-        <div style="flex: 1; height: 100%;">
-            <img src="/works/flashGame.gif" alt="gif 1" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="image-gallery-container">
+        <div class="gallery-image-box">
+            <img src="/works/flashGame.gif" alt="poster 1">
         </div>
-        <div style="flex: 1; height: 100%;">
-            <img src="/works/flashGame2.jpg" alt="gif 2" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="gallery-image-box">
+            <img src="/works/flashGame2.jpg" alt="poster 2">
         </div>
     </div>
+
 
     <button class="back-btn">
         <a href="/index.html"><img src="/images/nav_btnB.png" alt="back">

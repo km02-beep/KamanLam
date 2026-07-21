@@ -41,20 +41,14 @@
         display: block;
         cursor: pointer;
         transform-origin: center center;
-        /* 震動時以圖片中心為軸心 */
-
-        /* ✨ 新增：加入平滑恢復的轉場，當滑鼠離開時，圖片會柔和地回到原位 */
         transition: transform 0.2s ease;
     }
 
-    /* 🎯 關鍵修改：當滑鼠移入（:hover）圖片時，立刻觸發無限循環的劇烈震動 */
     .shake-gallery-item img:hover {
-        /* 0.35s: 震動速度（數字越小動得越快、越麻）
-       infinite: 滑鼠停在上面時會無限持續震動*/
         animation: intenseHoverShake 0.6s ease-in-out infinite;
     }
 
-    /* 🎬 保持您最滿意的真實劇烈上下左右扭動震動軌跡 */
+
     @keyframes intenseHoverShake {
 
         0%,
@@ -96,6 +90,25 @@
 
         90% {
             transform: translate(-1px, -1px) rotate(-0.5deg);
+        }
+    }
+
+    @media (max-width: 768px) {
+        body .shake-gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+            width: 90%;
+            gap: 15px;
+            padding-top: clamp(5px, 5vw, 30px);
+            padding-bottom: clamp(20px, 5vw, 40px);
+        }
+
+
+        body .shake-gallery-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.15s ease;
         }
     }
 </style>

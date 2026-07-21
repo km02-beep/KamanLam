@@ -104,7 +104,6 @@
 
        .slider-caption {
            width: 85%;
-           /* 寬度與上面的 .slider-container 保持一模一樣 */
            margin: 20px auto 0;
            padding-left: 0px;
            /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
@@ -118,7 +117,6 @@
 
        .slider-caption-black {
            width: 85%;
-           /* 寬度與上面的 .slider-container 保持一模一樣 */
            margin: 20px auto 0;
            padding-left: 0px;
            /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
@@ -128,6 +126,7 @@
            z-index: 20;
            line-height: 1.6;
            letter-spacing: 0.1vw;
+           text-shadow: none;
        }
 
 
@@ -144,7 +143,7 @@
                position: absolute;
                top: 10px;
                left: 10px;
-               width: 65%;
+               width: 100%;
                font-size: 9px;
                text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
                text-align: left;
@@ -191,17 +190,19 @@
            }
 
            body .slider-caption {
-               width: 90%;
-               margin: 15px auto 0;
+               width: 100%;
+               margin: 15px 5%;
                font-size: 10px;
                line-height: 1.5;
            }
 
            body .slider-caption-black {
-               width: 90%;
-               margin: 15px auto 0;
-               font-size: 12px;
+               width: 100%;
+               margin: 15px 5%;
+               font-size: 9px;
                line-height: 1.5;
+               text-shadow: none;
+               color: #000000;
            }
        }
 
@@ -235,34 +236,21 @@
            height: 100%;
        }
 
-       /* ==========================================================================
-   📱 rolePlaying 頁面專屬手機版安全鎖（YouTube 影片完美自適應優化）
-   ========================================================================== */
-       @media (max-width: 768px) {
 
-           /* 1. 調整影片外層區塊：縮小手機版的上下留白間距 */
+       @media (max-width: 768px) {
            body .video-section {
                width: 100%;
                padding-top: 30px;
-               /* 💡 縮小手機版頂部間距，排版更緊湊 */
                padding-bottom: 80px;
-               /* 💡 底部預留 80px 空間，防止影片與下方置中的返回按鈕撞在一起 */
            }
 
-           /* 2. ✨ 核心修改：將影片寬度放大，並強制轉換為標準 16:9 比例 */
            body .youtube-container {
                width: 92%;
-               /* 💡 核心修改：由 70% 放大到 92%，在手機小螢幕上將影片放到最大 */
-
-               /* 💡 核心修改：由原本的 42.8% 修正為 56.25%（這是網頁設計中 16:9 影片的黃金比例公式） */
                padding-bottom: 56.25%;
-
                margin: 0 auto;
-               /* 保持水平居中 */
                border: 1px solid #808184;
            }
 
-           /* 3. 確保影片內嵌標籤百分之百完美填滿加大的外框 */
            body .youtube-container iframe {
                position: absolute;
                top: 0;
@@ -311,8 +299,11 @@
            width: 85%;
            margin: 0 auto;
            gap: 30px;
-           overflow-x: auto;
+
+           /* 💡 核心修改 1：由 auto 改為 scroll，強制手機瀏覽器必須為這條滾動條預留實體渲染空間 */
+           overflow-x: scroll;
            overflow-y: hidden;
+
            padding-bottom: 15px;
            -webkit-overflow-scrolling: touch;
        }
@@ -321,6 +312,9 @@
        .gallery-grid::-webkit-scrollbar {
            height: 6px;
            /* Sleek, thin bar width */
+
+           /* 💡 核心修改 2：強制在行動裝置（iOS/Android）上也必須渲染出來，防止被手機系統自動抹除隱形 */
+           display: block;
        }
 
        .gallery-grid::-webkit-scrollbar-track {
@@ -332,6 +326,7 @@
            background: #14b539;
            border-radius: 3px;
        }
+
 
        .gallery-item {
            display: flex;
@@ -445,26 +440,20 @@
            }
        }
 
-       /* 左右按鈕的基礎通用樣式 */
+
        .lightbox-btn {
            position: absolute;
            top: 50%;
            transform: translateY(-50%);
            background-color: rgba(29, 53, 39, 0);
-           /* 與您網頁一致的深綠半透明 */
            border: 0;
-           /* 灰色邊框 */
            color: white;
            font-size: clamp(16px, 2.5vw, 30px);
-           /* 按鈕文字隨視窗比例縮放 */
            width: clamp(35px, 5vw, 45px);
-           /* 按鈕寬高隨視窗比例縮放 */
            height: clamp(35px, 5vw, 45px);
            cursor: pointer;
            z-index: 9999999;
-           /* 層級必須高於大圖 */
            border-radius: 50%;
-           /* 圓形按鈕 */
            display: flex;
            align-items: center;
            justify-content: center;
@@ -477,7 +466,7 @@
            color: #1D3527;
        }
 
-       /* 精確設定左按鈕與右按鈕在全螢幕上的位置 */
+
        .lightbox-prev {
            left: 4%;
        }
@@ -490,13 +479,9 @@
        .single-image-section {
            display: flex;
            justify-content: center;
-           /* ✨ 核心：讓內部的圖片水平左右置中 */
            width: 100%;
-           /* 撐滿整個視窗寬度提供置中空間 */
            padding-top: 40px;
-           /* 與上方輪播圖說明文字保持 40px 的呼吸間距 */
            padding-bottom: 40px;
-           /* 與下方元件保持間距 */
            box-sizing: border-box;
        }
 
@@ -505,6 +490,21 @@
            height: auto;
        }
 
+       @media (max-width: 768px) {
+           body .single-image-section {
+               padding-top: 20px;
+               padding-bottom: 20px;
+               width: 100%;
+           }
+
+           body .single-image-section img {
+               width: 90%;
+               max-width: 100%;
+               height: auto;
+               margin: 0 auto;
+               display: block;
+           }
+       }
 
 
        /* =================【 back button 等比例縮放修正 】================= */
@@ -626,6 +626,40 @@
            }
        }
 
+
+       /*two image*/
+       .image-gallery-container {
+           display: flex;
+           flex-direction: row;
+           justify-content: center;
+           align-items: center;
+           width: 85%;
+           margin: 40px auto;
+           gap: 30px;
+       }
+
+       /* 圖片的外包裝：決定兩張圖平分寬度 */
+       .gallery-image-box {
+           flex: 1;
+           max-width: 650px;
+       }
+
+       /* 圖片本體：隨外框自動縮放 */
+       .gallery-image-box img {
+           width: 100%;
+           height: auto;
+           display: block;
+           border: 1px solid #00a6ff;
+       }
+
+       /* 📱 手機版 RWD 自動優化（當螢幕太窄裝不下兩張並列時） */
+       @media (max-width: 768px) {
+           .image-gallery-container {
+               width: 90%;
+               gap: 15px;
+               margin: 20px auto;
+           }
+       }
 
        /* =========================== footer ========================== */
        footer {
