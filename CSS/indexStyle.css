@@ -227,8 +227,8 @@ body {
 .dropArt .select .preview-img {
     display: none;
     position: absolute;
-    left: 170px;
-    top: -10px;
+    left: 172.5px;
+    top: -9px;
     width: 300px;
     height: auto;
     border: 2px solid #808184;

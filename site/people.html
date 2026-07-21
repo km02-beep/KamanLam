@@ -32,33 +32,38 @@
         letter-spacing: 0.1vw;
     }
 
-    /* ==========================================================================
-   📱 僅在手機版（窄螢幕）中優化文字說明區，確保字在圖下且清晰
-   ========================================================================== */
-    @media (max-width: 768px) {
+    .slider-caption b {
+        font-size: clamp(11px, 1vw, 12px);
+        display: block;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-underline-offset: 0.3vw;
+        margin-bottom: -0.5vw;
+    }
 
-        /* ✨ 核心修正：提高權重，解除電腦版的 fixed 鎖死定位 */
+
+    @media (max-width: 768px) {
         body .slider-caption {
             position: relative;
-            /* 💡 核心修改：由 fixed 改為 relative，讓文字回歸正常的上下排隊流 */
             top: auto;
-            /* 💡 核心修改：徹底拔除電腦版強行推開的 670px 頂部距離 */
             left: auto;
-            /* 解除電腦版 left: 10% 的偏移 */
-
             width: 90%;
-            /* 💡 讓出手機兩側空間，由 85% 放寬到 90% 給予更多橫向舒展空間 */
             margin: 20px auto 0;
-            /* 💡 自動水平居中，並與上方的縮小圖片完美留出 20px 的呼吸距離 */
-
-            /* 💡 核心修改：徹底移除電腦版 clamp，手機內文強制鎖定在最舒適閱讀的 12px，防止縮水 */
-            font-size: 12px;
-
+            font-size: 10px;
             text-align: left;
-            /* 維持您原本的靠左對齊 */
             line-height: 1.6;
         }
+
+        body .slider-caption b {
+            font-size: 11px;
+            display: block;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-underline-offset: 4px;
+            margin-bottom: -3px;
+        }
     }
+
 
 
     .gallery-grid::-webkit-scrollbar-track {
@@ -172,6 +177,14 @@
 
     .back-btn-still img:hover {
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    @media (max-width: 768px) {
+
+        body .back-btn-still {
+            display: none;
+        }
+
     }
 </style>
 
