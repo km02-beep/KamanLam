@@ -32,6 +32,35 @@
         letter-spacing: 0.1vw;
     }
 
+    /* ==========================================================================
+   📱 僅在手機版（窄螢幕）中優化文字說明區，確保字在圖下且清晰
+   ========================================================================== */
+    @media (max-width: 768px) {
+
+        /* ✨ 核心修正：提高權重，解除電腦版的 fixed 鎖死定位 */
+        body .slider-caption {
+            position: relative;
+            /* 💡 核心修改：由 fixed 改為 relative，讓文字回歸正常的上下排隊流 */
+            top: auto;
+            /* 💡 核心修改：徹底拔除電腦版強行推開的 670px 頂部距離 */
+            left: auto;
+            /* 解除電腦版 left: 10% 的偏移 */
+
+            width: 90%;
+            /* 💡 讓出手機兩側空間，由 85% 放寬到 90% 給予更多橫向舒展空間 */
+            margin: 20px auto 0;
+            /* 💡 自動水平居中，並與上方的縮小圖片完美留出 20px 的呼吸距離 */
+
+            /* 💡 核心修改：徹底移除電腦版 clamp，手機內文強制鎖定在最舒適閱讀的 12px，防止縮水 */
+            font-size: 12px;
+
+            text-align: left;
+            /* 維持您原本的靠左對齊 */
+            line-height: 1.6;
+        }
+    }
+
+
     .gallery-grid::-webkit-scrollbar-track {
         background: rgba(165, 164, 164, 0.5);
         /* Faint background color */
@@ -98,6 +127,23 @@
         /* 變為純白色，提示使用者這條是可以拉動的 */
     }
 
+    @media (max-width: 768px) {
+
+        /* 讓手機版圖片不要霸佔 650px 的巨大高度，改用視窗高度（vh）等比例縮小 */
+        body .scroll-container {
+            position: relative;
+            /* 解除固定定位，防止擋住下方的返回按鈕與文字 */
+            height: auto;
+        }
+
+        body .scroll-container img {
+            /* 💡 核心修改：在手機上，圖片高度自動縮小為手機螢幕高度的 45% (約 320px) */
+            height: 45vh;
+            width: auto;
+            /* 寬度依原圖比例向右無限延伸，觸發流暢左右滑動 */
+        }
+    }
+
     .back-btn-still {
         position: fixed;
         top: 675px;
@@ -152,9 +198,6 @@
 
 
 </body>
-<footer>
-    <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
-</footer>
 
 
 </html>
