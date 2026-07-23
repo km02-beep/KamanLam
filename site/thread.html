@@ -18,6 +18,13 @@
     body {
         background-color: rgb(205, 202, 188);
     }
+
+    .gallery-image-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid #00ff22;
+    }
 </style>
 
 <body>
@@ -58,7 +65,7 @@
                 <div class="gallery-item"><img src="/works/thread2.gif" alt="Exhibition View Asset Index"></div>
                 <div class="gallery-item"><img src="/works/threadSlide_8.jpg" alt="Exhibition View Asset Index"></div>
                 <div class="gallery-item"><img src="/works/thread3.gif" alt="Exhibition View Asset Index"></div>
-
+                <div class="gallery-item"><img src="/works/threadSlide_12.jpg" alt="Exhibition View Asset Index"></div>
             </div>
 
             <div class="gallery-caption-black">
@@ -69,15 +76,21 @@
             </div>
         </div>
 
-        <div class="single-image-section">
-            <img src="/works/threadSlide_10.jpg" alt="thread" width="50%" style="padding-bottom: 50px;">
-        </div>
 
         <div id="image-lightbox" class="lightbox">
             <span class="lightbox-close">&times;</span>
             <button class="lightbox-btn lightbox-prev">❮</button>
             <button class="lightbox-btn lightbox-next">❯</button>
             <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+        </div>
+
+        <div class="image-gallery-container" style="padding-top: 3%; padding-bottom: 10%;">
+            <div class="gallery-image-box">
+                <img src="/works/threadSlide_10.jpg" alt="poster 1">
+            </div>
+            <div class="gallery-image-box">
+                <img src="/works/threadSlide_13.jpg" alt="poster 2">
+            </div>
         </div>
 
         <button class="back-btn">
