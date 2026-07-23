@@ -22,6 +22,7 @@
            margin-bottom: -0.5vw;
        }
 
+
        /*silde show*/
        .slider-section {
            width: 100%;
@@ -115,6 +116,20 @@
            letter-spacing: 0.1vw;
        }
 
+       .slider-caption a {
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(255, 255, 255);
+           z-index: 20;
+           text-decoration: none;
+       }
+
+       .slider-caption a:hover {
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(1, 255, 13);
+           z-index: 20;
+           text-decoration: underline;
+       }
+
        .slider-caption-black {
            width: 85%;
            margin: 20px auto 0;
@@ -128,6 +143,21 @@
            letter-spacing: 0.1vw;
            text-shadow: none;
        }
+
+       .slider-caption-black a {
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(255, 255, 255);
+           z-index: 20;
+           text-decoration: none;
+       }
+
+       .slider-caption-black a:hover {
+           font-size: clamp(10px, 1vw, 10.5px);
+           color: rgb(1, 255, 13);
+           z-index: 20;
+           text-decoration: underline;
+       }
+
 
 
        @media (max-width: 768px) {
@@ -204,6 +234,28 @@
                text-shadow: none;
                color: #000000;
            }
+       }
+
+       /* ====================================================== */
+       .slider-cover {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           width: 100%;
+           box-sizing: border-box;
+       }
+
+       .slider-cover img {
+           max-width: 85%;
+           height: auto;
+           display: block;
+       }
+
+       .cover-full {
+           width: 100%;
+           margin: 0;
+           padding: 0;
+           /* 這裡您可以繼續在 HTML 裡保留獨立的 padding-top: 10% 沒關係 */
        }
 
 

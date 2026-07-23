@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Design</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: #9e9e9e;
+    }
+
+    .slider-container p b {
+        font-size: clamp(11px, 1vw, 12px);
+        display: block;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-underline-offset: 0.3vw;
+        /* 底線距離也等比例縮放 */
+        margin-bottom: -0.5vw;
+        line-height: 2;
+    }
+
+    .gallery-grid::-webkit-scrollbar-track {
+        background: rgba(121, 121, 121, 0.5);
+        /* Faint background color */
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb {
+        background: #000000;
+        border-radius: 3px;
+    }
+</style>
+
+<body>
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>Popo-Post Art Group's Name Card Design <br>後後後藝術群卡片, 2019 </b><br>
+                4 x 13 cm<br>
+            </p>
+            <div class="slider-wrapper">
+                <img src="/works_design/ppp1.jpg" alt="slide1">
+            </div>
+        </div>
+
+
+        <div style="padding-top: 0%; padding-bottom: 5%; width: 100%;">
+            <img src="/works_design/ppp3.jpg" alt="slide1"
+                style="width: 85vw; max-width: none; position: relative; left: 50%; transform: translateX(-50%); height: auto; display: block;">
+        </div>
+
+
+        <div class="gallery-section">
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="/works_design/ppp7.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works_design/ppp4.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works_design/ppp5.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works_design/ppp6.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works_design/ppp8.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works_design/ppp11.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works_design/ppp10.JPG" alt="Exhibition View Asset Index"></div>
+                <div class="gallery-item"><img src="/works_design/ppp9.JPG" alt="Exhibition View Asset Index"></div>
+            </div>
+        </div>
+
+
+        <div id="image-lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-btn lightbox-prev">❮</button>
+            <button class="lightbox-btn lightbox-next">❯</button>
+            <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+        </div>
+
+
+        <div style="padding-top: 5%; padding-bottom: 3%; width: 100%;">
+            <img src="/works_design/ppp2.jpg" alt="slide1"
+                style="width: 100vw; max-width: none; position: relative; left: 50%; transform: translateX(-50%); height: auto; display: block;">
+        </div>
+
+
+
+        <button class="back-btn">
+            <a href="/index.html"><img src="/images/nav_btn.png">
+            </a>
+        </button>
+
+        <footer>
+            <p class="footer-text-black"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+        </footer>
+
+        <script src="/script.js"></script>
+
+</body>

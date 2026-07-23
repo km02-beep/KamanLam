@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Design</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgb(220, 162, 63);
+    }
+
+    p.footer-text {
+        color: rgb(110, 0, 0);
+        font-size: 9px;
+        white-space: nowrap;
+    }
+
+    .slider-caption {
+        width: 85%;
+        margin: 20px auto 0;
+        padding-left: 0px;
+        /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
+        text-align: left;
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(110, 0, 0);
+        z-index: 20;
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+    }
+
+    .slider-caption a {
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(110, 0, 0);
+        z-index: 20;
+        text-decoration: none;
+    }
+
+    .slider-caption a:hover {
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(1, 255, 13);
+        z-index: 20;
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <div class="slider-cover">
+        <img src="/works_design/Freya.jpg" alt="slide1">
+    </div>
+    <div class="slider-caption" style="padding-bottom:5%">
+        <b>Visual Design for</b><br>
+        <u>Exhibition:</u>
+        <a href="https://www.videotage.org.hk/programme/freya-powell-spaces-of-exception" target="_blank"> Freya Powell:
+            Spaces of Exception</a><br>
+        <u>Venue:</u> Videotage, Hong Kong<br>
+        <u>Date:</u> 07 - 28 January, 2024<br>
+        <br>
+    </div>
+
+    <div style="padding-top: 0%; width: 100%;">
+        <img src="/works_design/freya2.jpg" alt="slide1"
+            style="width: 100vw; max-width: none; position: relative; left: 50%; transform: translateX(-50%); height: auto; display: block;">
+    </div>
+    <div style="padding-top: 0%; width: 100%;">
+        <img src="/works_design/freya3.jpg" alt="slide1"
+            style="width: 100vw; max-width: none; position: relative; left: 50%; transform: translateX(-50%); height: auto; display: block;">
+    </div>
+
+
+    <button class="back-btn">
+        <a href="/index.html"><img src="/images/nav_btn.png">
+        </a>
+    </button>
+
+    <footer>
+        <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>

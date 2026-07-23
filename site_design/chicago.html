@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Design</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: #982121;
+    }
+
+    .slider-container p {
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(0, 0, 0);
+        text-align: left;
+        position: absolute;
+        top: 3%;
+        left: 3%;
+        z-index: 20;
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+        text-shadow: none;
+    }
+</style>
+
+<body>
+    <div class="slider-section">
+        <div class="slider-container">
+            <p>
+                <b>Read a video game | 閱讀電子遊戲 , 2017 </b><br>
+                Typeface booklet design, 14.8 x 21cm, 16 pages<br>
+                字體小冊子設計, 14.8 x 21厘米, 16頁<br>
+            </p>
+            <div class="slider-wrapper">
+                <img src="/works_design/chicago00.jpg" alt="slide1">
+            </div>
+        </div>
+        <div class="slider-caption">
+            Typeface: Pix Chicago<br>
+        </div>
+    </div>
+
+    <div class="gallery-section" style="padding-bottom: 10%;">
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="/works_design/chicago1.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/chicago2.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/chicago3.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/chicago4.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/chicago5.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/chicago6.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/chicago7.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/chicago8.jpg" alt="Exhibition View Asset Index"></div>
+        </div>
+        <div id="image-lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-btn lightbox-prev">❮</button>
+            <button class="lightbox-btn lightbox-next">❯</button>
+            <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+        </div>
+
+    </div>
+
+
+    <button class="back-btn">
+        <a href="/index.html"><img src="/images/nav_btn.png">
+        </a>
+    </button>
+
+    <footer>
+        <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>

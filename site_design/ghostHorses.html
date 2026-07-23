@@ -1,6 +1,77 @@
-in progress...
+<!DOCTYPE html>
+<html>
 
-<button class="back-btn">
-    <a href="/index.html">Back
-    </a>
-</button>
+<head>
+    <meta charset="UTF-8">
+    <title>Design</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/newStyle.css">
+</head>
+
+<style>
+    * {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    body {
+        background-color: rgb(35, 35, 35);
+    }
+</style>
+
+<body>
+    <div class="slider-cover">
+        <img src="/works_design/jenna1.jpg" alt="slide1">
+    </div>
+
+    <div class="slider-caption">
+        <b>Visual Design for</b><br>
+        <u>Exhibition:</u>
+        <a href="https://www.videotage.org.hk/programme/janne-schimmel-story-machines-case-mods-and-ghost-horses"
+            target="_blank">Janne Schimmel: Story Machines, Case Mods and Ghost Horses |
+            雅內．希梅爾：整鬼整馬</a><br>
+        <u>Date:</u> 18 June, 2025 – 20 July, 2025<br>
+        <br>
+        <u>Presented by:</u> Videotage, Hong Kong<br>
+        <u>Curated by:</u> Angel Leung<br>
+        <u>Visual Design:</u> Kaman Lam<br>
+
+
+        <div style="padding-top: 5%; width: 100%;">
+            <img src="/works_design/jenna3.jpg" alt="slide1"
+                style="width: 100vw; max-width: none; position: relative; left: 50%; transform: translateX(-50%); height: auto; display: block;">
+        </div>
+
+
+    </div>
+
+    <div class="gallery-section">
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="/works_design/jenna5.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/jenna4.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/jenna10.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/jenna6.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/jenna9.jpg" alt="Exhibition View Asset Index"></div>
+            <div class="gallery-item"><img src="/works_design/jenna7.jpg" alt="Exhibition View Asset Index"></div>
+        </div>
+
+        <div id="image-lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <button class="lightbox-btn lightbox-prev">❮</button>
+            <button class="lightbox-btn lightbox-next">❯</button>
+            <img class="lightbox-content" id="lightbox-img" alt="放大後的檢視圖">
+        </div>
+    </div>
+
+    <button class="back-btn">
+        <a href="/index.html"><img src="/images/nav_btn.png">
+        </a>
+    </button>
+
+    <footer>
+        <p class="footer-text"> Copyright © 2026 Museum Trap | All Rights Reserved </p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
