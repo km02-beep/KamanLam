@@ -115,7 +115,6 @@
            line-height: 1.6;
            letter-spacing: 0.1vw;
            white-space: normal;
-           /* 確保維持正常折行 */
            word-break: break-all;
            /* 遇到網址或長英文單字時強制截斷折行 */
            overflow-wrap: break-word;
@@ -173,10 +172,12 @@
        @media (max-width: 768px) {
 
            /* 1. 鎖定全域防禦，防止手機版網頁左右產生不正常晃動 */
+           html,
            body {
-               width: 100vw;
+               width: 100%;
                overflow-x: hidden;
            }
+
 
            /* 2. ✨ 核心修正：保留 position: absolute，讓文字完美繼續懸浮疊在圖片左上角 */
            body .slider-container p {
@@ -199,13 +200,11 @@
                margin-bottom: -3px;
            }
 
-           /* 3. 調整輪播圖容器：放寬手機版橫向空間 */
+
            body .slider-container {
                width: 90%;
-               /* 寬度由 85% 放大到 90%，放大手機展示區 */
            }
 
-           /* 4. 強制左右切換按鈕在手機上永久現形，並縮小體積 */
            body .slide-btn {
                opacity: 1;
                font-size: 14px;
@@ -214,7 +213,6 @@
                background-color: rgba(0, 0, 0, 0.25);
 
            }
-
 
            body .slide-btn:active {
                background-color: rgb(255, 255, 255);
@@ -246,28 +244,27 @@
            }
        }
 
+       /* ── 修正手機版右側留白與外溢 ── */
        @media screen and (max-width: 768px) {
-
-           .slider-caption,
-           .slider-caption-black {
-               /* 1. 放大寬度，讓手機版文字有更多延伸空間 */
-               width: 92%;
-               /* 2. 在手機上寫死固定字級，避免 clamp() 縮得太小（建議不小於 12px） */
-               font-size: 10px;
-               /* 3. 改用 px 固定間距，防止手機上字體過度緊縮 */
-               letter-spacing: 0.5px;
-               /* 4. 微調間距，讓手機排版更好看 */
-               margin: 15px auto 0;
+           .image-gallery-container {
+               flex-direction: column;
+               width: 85%;
+               height: auto !important;
+               gap: 20px;
            }
 
-           /* 同步更新超連結的字體大小 */
-           .slider-caption a,
-           .slider-caption a:hover,
-           .slider-caption-black a,
-           .slider-caption-black a:hover {
-               font-size: 10px;
+           .gallery-image-box {
+               width: 100%;
+               max-width: 100%;
+           }
+
+           /* 4. 修正圖片本體：寬度百分百，高度隨比例自適應 */
+           .gallery-image-box img {
+               width: 100% !important;
+               height: auto !important;
            }
        }
+
 
 
        /* ====================================================== */

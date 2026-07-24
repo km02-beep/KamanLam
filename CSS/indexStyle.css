@@ -196,15 +196,14 @@ body {
     padding: 7px;
 }
 
-/* 💡 修正 1：移除選擇器中的 ul，直接對齊您 HTML 的 .dropArt .select */
+
 .dropArt .select {
     list-style-type: none;
     padding: 5px 0px;
     position: relative;
-    /* 讓內部的預覽圖可以相對於這一行文字定位 */
+
 }
 
-/* 💡 修正 2：移除選擇器中的 ul */
 .dropArt .select:hover {
     text-decoration: none;
     background-color: white;
@@ -241,6 +240,15 @@ body {
     display: block;
 
 }
+
+@media screen and (max-width: 768px) {
+
+    .dropArt .select .preview-img,
+    .dropArt .select:hover .preview-img {
+        display: none;
+    }
+}
+
 
 /* dropArt */
 
