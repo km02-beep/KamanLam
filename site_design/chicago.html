@@ -31,23 +31,40 @@
         letter-spacing: 0.1vw;
         text-shadow: none;
     }
+
+    .slider-caption {
+        width: 85%;
+        margin: 20px auto 0;
+        padding-left: 0px;
+        /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
+        text-align: left;
+        font-size: clamp(10px, 1vw, 10.5px);
+        color: rgb(247, 255, 192);
+        z-index: 20;
+        line-height: 1.6;
+        letter-spacing: 0.1vw;
+        white-space: normal;
+        word-break: break-all;
+        /* 遇到網址或長英文單字時強制截斷折行 */
+        overflow-wrap: break-word;
+        /* 支援現代瀏覽器的安全折行 */
+    }
 </style>
 
 <body>
     <div class="slider-section">
         <div class="slider-container">
+            <div class="slider-wrapper">
+                <img src="/works_design/chicago00.jpg" alt="slide1">
+            </div>
+        </div>
+        <div class="slider-caption">
             <p>
                 <b>Read a video game | 閱讀電子遊戲 , 2017 </b><br>
                 Typeface booklet design, 14.8 x 21cm, 16 pages<br>
                 字體小冊子設計, 14.8 x 21厘米, 16頁<br>
                 Typeface: Pix Chicago<br>
             </p>
-            <div class="slider-wrapper">
-                <img src="/works_design/chicago00.jpg" alt="slide1">
-            </div>
-        </div>
-        <div class="slider-caption">
-
         </div>
     </div>
 
