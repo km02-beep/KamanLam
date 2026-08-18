@@ -258,7 +258,7 @@ body {
     bottom: 8%;
     right: 4%;
     width: 10vw;
-    max-width: 650px;
+    max-width: 1000px;
     min-width: 600px;
     cursor: grab;
 }
