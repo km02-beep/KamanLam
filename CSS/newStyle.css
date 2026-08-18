@@ -18,7 +18,6 @@
            text-decoration: underline;
            text-decoration-style: wavy;
            text-underline-offset: 0.3vw;
-           /* 底線距離也等比例縮放 */
            margin-bottom: -0.5vw;
        }
 
@@ -26,7 +25,6 @@
        /*silde show*/
        .slider-section {
            width: 100%;
-           /* 強制外層撐滿 100% 寬度，提供置中空間 */
            padding-top: 0px;
            padding-bottom: 20px;
            box-sizing: border-box;
@@ -51,7 +49,6 @@
        .slider-wrapper img {
            width: 100%;
            flex-shrink: 0;
-           /* 防止圖片被壓縮 */
            display: block;
        }
 
@@ -107,7 +104,6 @@
            width: 85%;
            margin: 20px auto 0;
            padding-left: 0px;
-           /* 強制清除任何可能殘留的左側內邊距，確保文字貼緊最左邊 */
            text-align: left;
            font-size: clamp(10px, 1vw, 10.5px);
            color: rgb(255, 255, 255);
